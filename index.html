@@ -10,6 +10,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Ognyan Baltadzhiev – Ship's Electrical Engineer (ETO)">
 <meta property="og:description" content="1st Electrical Engineer on cruise ships. Diesel-electric and dual-fuel plants, Azipod, automation, onboard DC grids.">
+<meta property="og:image" content="https://ognyanbaltadzhiev.com/photo.jpg">
 <meta property="og:url" content="https://ognyanbaltadzhiev.com/">
 <meta property="profile:first_name" content="Ognyan">
 <meta property="profile:last_name" content="Baltadzhiev">
@@ -39,6 +40,7 @@
   },
   "knowsAbout": ["Marine electrical engineering", "Diesel-electric propulsion", "Dual-fuel engines", "Wärtsilä 31DF", "ABB Azipod", "ABB 800xA", "Valmet DNA", "High-voltage distribution", "Power management systems", "Onboard DC grids", "IGF Code", "Ship technical documentation"],
   "knowsLanguage": ["en", "bg"],
+  "image": "https://ognyanbaltadzhiev.com/photo.jpg",
   "sameAs": ["https://www.linkedin.com/in/ognyan-baltadzhiev"]
 }
 </script>
@@ -70,7 +72,8 @@
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(90deg,var(--accent) 0 40px,transparent 40px 48px);opacity:.55}
   .hero .wrap{display:grid;grid-template-columns:140px 1fr;gap:36px;align-items:center}
   .mono{width:140px;height:140px;border-radius:50%;border:2px solid rgba(233,228,216,.5);display:grid;place-items:center;font-family:var(--serif);font-size:48px;color:var(--sand);background:var(--navy-2);overflow:hidden}
-  .mono img{width:100%;height:100%;object-fit:cover}
+  .mono{position:relative}
+  .mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero h1{font-family:var(--serif);font-weight:normal;font-size:44px;line-height:1.1;margin:0 0 8px;color:#fff}
   .hero .role{font-size:19px;margin:0 0 4px;color:var(--sand)}
   .hero .meta{font-size:14px;color:rgba(233,228,216,.75);margin:0 0 22px}
@@ -161,7 +164,7 @@
 <main>
 <div class="hero">
   <div class="wrap">
-    <div class="mono" aria-hidden="true">OB</div>
+    <div class="mono"><img src="photo.jpg" alt="Ognyan Baltadzhiev" width="140" height="140" onerror="this.remove()"><span class="mono-fallback" aria-hidden="true">OB</span></div>
     <div>
       <h1>Ognyan Baltadzhiev</h1>
       <p class="role">Ship's Electrical Engineer &middot; ETO (STCW III/6)</p>
