@@ -14,8 +14,10 @@
 <meta property="og:url" content="https://ognyanbaltadzhiev.com/">
 <meta property="profile:first_name" content="Ognyan">
 <meta property="profile:last_name" content="Baltadzhiev">
-<meta name="theme-color" content="#0f2a44">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2a44'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23e9e4d8' text-anchor='middle'%3EOB%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#e3eef6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a44'/%3E%3Cpath d='M14 40 L24 24 L32 36 L40 22 L50 40' fill='none' stroke='%23e0a35a' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
 {
@@ -46,110 +48,184 @@
 </script>
 
 <style>
+  /* Fonts: self-hosted, no third-party requests */
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/inter-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/inter-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/inter-cyrillic-wght-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-display:swap;font-weight:300 700;src:url(fonts/space-grotesk-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-display:swap;font-weight:300 700;src:url(fonts/space-grotesk-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:100 800;src:url(fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2")}
+
   :root{
-    --navy:#0f2a44; --navy-2:#1b3b5c; --ink:#1d232b; --muted:#5b6672;
-    --paper:#fbfaf7; --sand:#e9e4d8; --line:#dcd6c8; --accent:#b0782d;
-    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bg:#f4f7fa; --surface:#ffffff; --ink:#0f2a44; --text:#28394b; --muted:#5f6e7d;
+    --line:#e1e8ef; --sea:#2f6f98; --sea-2:#4b8fbd; --sea-soft:#dcebf5; --sky:#e3eef6;
+    --copper:#c27c33; --copper-soft:#f6e7d4;
+    --display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --sans:"Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
+    --radius:18px;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-  a{color:var(--navy-2);text-underline-offset:3px}
-  a:hover{color:var(--accent)}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--sea);text-underline-offset:3px}
+  a:hover{color:var(--copper)}
+  img{max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  @media (max-width:640px){ .wrap{padding:0 20px} }
 
-  /* Header */
-  header.top{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
-  .brand{font-family:var(--serif);font-size:18px;color:var(--navy);text-decoration:none;letter-spacing:.2px}
-  nav a{font-size:14px;color:var(--muted);text-decoration:none;margin-left:20px}
-  nav a:hover{color:var(--navy)}
-  @media (max-width:720px){ nav{display:none} }
+  /* Header: floats over the hero, no dividing line */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(227,238,246,.72);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand svg{flex:none}
+  nav{display:flex;gap:4px}
+  nav a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .2s,color .2s}
+  nav a:hover{background:rgba(255,255,255,.75);color:var(--ink)}
+  @media (max-width:900px){ nav{display:none} }
 
-  /* Hero */
-  .hero{background:var(--navy);color:var(--sand);padding:72px 0 64px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:repeating-linear-gradient(90deg,var(--accent) 0 40px,transparent 40px 48px);opacity:.55}
-  .hero .wrap{display:grid;grid-template-columns:140px 1fr;gap:36px;align-items:center}
-  .mono{width:140px;height:140px;border-radius:50%;border:2px solid rgba(233,228,216,.5);display:grid;place-items:center;font-family:var(--serif);font-size:48px;color:var(--sand);background:var(--navy-2);overflow:hidden}
-  .mono{position:relative}
-  .mono img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.7);transform-origin:46% 24%}
-  .hero h1{font-family:var(--serif);font-weight:normal;font-size:44px;line-height:1.1;margin:0 0 8px;color:#fff}
-  .hero .role{font-size:19px;margin:0 0 4px;color:var(--sand)}
-  .hero .meta{font-size:14px;color:rgba(233,228,216,.75);margin:0 0 22px}
-  .hero .bio{max-width:640px;margin:0 0 26px;color:rgba(255,255,255,.88)}
-  .btn{display:inline-block;padding:10px 18px;border-radius:3px;font-size:14px;text-decoration:none;margin:0 10px 8px 0;border:1px solid var(--sand)}
-  .btn.primary{background:var(--sand);color:var(--navy)}
-  .btn.primary:hover{background:#fff;color:var(--navy)}
-  .btn.ghost{color:var(--sand)}
-  .btn.ghost:hover{background:rgba(233,228,216,.12);color:#fff}
-  @media (max-width:720px){
-    .hero{padding:48px 0}
-    .hero .wrap{grid-template-columns:1fr;gap:20px}
-    .mono{width:96px;height:96px;font-size:34px}
-    .hero h1{font-size:34px}
+  /* Hero: light sky that fades into the page */
+  .hero{position:relative;margin-top:-66px;padding:130px 0 90px;overflow:hidden;
+    background:
+      radial-gradient(900px 520px at 85% 10%, rgba(75,143,189,.20), transparent 65%),
+      radial-gradient(700px 480px at 5% 0%, rgba(194,124,51,.10), transparent 60%),
+      linear-gradient(180deg, var(--sky) 0%, var(--sky) 45%, var(--bg) 100%);}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(47,111,152,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,111,152,.07) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 55%,transparent 95%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 55%,transparent 95%)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;color:var(--sea);background:rgba(255,255,255,.7);border:1px solid rgba(47,111,152,.18);padding:6px 14px 6px 10px;border-radius:999px;margin:0 0 26px}
+  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#2fa36b;box-shadow:0 0 0 4px rgba(47,163,107,.18)}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(44px,6.2vw,76px);line-height:1;letter-spacing:-.035em;color:var(--ink);margin:0 0 18px}
+  .hero h1 span{display:block;color:var(--sea)}
+  .hero .role{font-family:var(--display);font-size:clamp(19px,2vw,23px);font-weight:500;color:var(--ink);margin:0 0 6px;letter-spacing:-.01em}
+  .hero .meta{font-size:15px;color:var(--muted);margin:0 0 22px}
+  .hero .bio{max-width:580px;font-size:17px;margin:0 0 32px;color:var(--text)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+  .btn.primary{background:var(--ink);color:#fff;box-shadow:0 10px 24px -10px rgba(15,42,68,.55)}
+  .btn.primary:hover{background:var(--sea);color:#fff;transform:translateY(-2px)}
+  .btn.ghost{background:rgba(255,255,255,.75);color:var(--ink);border:1px solid rgba(15,42,68,.12)}
+  .btn.ghost:hover{background:#fff;color:var(--ink);transform:translateY(-2px)}
+
+  .portrait{position:relative;justify-self:end;width:100%;max-width:400px}
+  .portrait::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:2px solid var(--copper);border-radius:32px;opacity:.55}
+  .portrait .frame{position:relative;aspect-ratio:1/1;border-radius:32px;overflow:hidden;background:linear-gradient(135deg,var(--ink),var(--sea));box-shadow:0 30px 60px -25px rgba(15,42,68,.45);display:grid;place-items:center}
+  .portrait .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .portrait .fallback{font-family:var(--display);font-size:72px;color:#fff;opacity:.85}
+  .portrait .tag{position:absolute;left:-26px;bottom:34px;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 16px 40px -18px rgba(15,42,68,.45);font-size:13px;line-height:1.35;color:var(--muted)}
+  .portrait .tag b{display:block;font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:600}
+
+  .hero .wrap-specs{display:block}
+  .specs{position:relative;margin-top:72px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,.7);border:1px solid rgba(15,42,68,.08);border-radius:var(--radius);backdrop-filter:blur(6px)}
+  .specs div{padding:22px 24px}
+  .specs div+div{border-left:1px solid var(--line)}
+  .specs b{display:block;font-family:var(--mono);font-size:21px;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+  .specs span{font-size:13px;line-height:1.45;color:var(--muted)}
+
+  @media (max-width:900px){
+    .hero{padding:110px 0 60px}
+    .hero .wrap{grid-template-columns:1fr;gap:48px}
+    .portrait{justify-self:start;max-width:340px;order:-1}
+    .specs{grid-template-columns:1fr 1fr;margin-top:40px}
+    .specs div:nth-child(3){border-left:0}
+    .specs div:nth-child(n+3){border-top:1px solid var(--line)}
   }
+  @media (max-width:480px){ .portrait{max-width:300px} .portrait .tag{left:-8px} .portrait::before{inset:14px -14px -14px 14px} .eyebrow{font-size:11px;letter-spacing:0} }
 
-  /* Sections */
-  section{padding:56px 0;border-bottom:1px solid var(--line)}
-  section:last-of-type{border-bottom:0}
-  h2{font-family:var(--serif);font-weight:normal;color:var(--navy);font-size:28px;margin:0 0 6px}
-  .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
-  .lead{color:var(--muted);margin:0 0 28px;max-width:680px}
-  h3{font-size:17px;margin:0 0 2px;color:var(--ink)}
-  .sub{color:var(--muted);font-size:14px;margin:0 0 14px}
-  p{margin:0 0 14px}
-  .prose{max-width:720px}
+  /* Sections: label column on the left, content across the width */
+  section{padding:88px 0}
+  .split{display:grid;grid-template-columns:260px 1fr;gap:56px}
+  .label{position:sticky;top:100px;align-self:start}
+  .num{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.06em;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+  .num::after{content:"";width:36px;height:2px;background:var(--copper);opacity:.6;border-radius:2px}
+  h2{font-family:var(--display);font-weight:600;color:var(--ink);font-size:34px;line-height:1.1;letter-spacing:-.025em;margin:0 0 12px}
+  .label .lead{font-size:14.5px;color:var(--muted);margin:0}
+  @media (max-width:900px){
+    section{padding:64px 0}
+    .split{grid-template-columns:1fr;gap:26px}
+    .label{position:static}
+  }
+  h3{font-family:var(--display);font-size:20px;font-weight:600;letter-spacing:-.015em;margin:0 0 4px;color:var(--ink)}
+  p{margin:0 0 16px}
+  .tint{background:linear-gradient(180deg,var(--bg),#eaf1f7 20%,#eaf1f7 80%,var(--bg))}
 
-  /* Experience */
-  .job{margin:0 0 36px}
+  /* About */
+  .about-text{font-size:17px;columns:2 340px;column-gap:48px}
+  .about-text p{break-inside:avoid}
+  .about-text p:first-child{font-family:var(--display);font-size:22px;line-height:1.45;color:var(--ink);font-weight:500;letter-spacing:-.01em;column-span:all;margin-bottom:28px;max-width:860px}
+
+  /* Experience timeline */
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--copper),var(--sea-soft))}
+  .job{position:relative;margin:0 0 52px}
   .job:last-child{margin-bottom:0}
+  .job::before{content:"";position:absolute;left:-34px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--copper)}
   .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-  .dates{font-size:14px;color:var(--muted);white-space:nowrap}
-  .tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
-  .tbl th{text-align:left;font-weight:600;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--line);padding:8px 10px 8px 0}
-  .tbl td{border-bottom:1px solid var(--line);padding:10px 10px 10px 0;vertical-align:top}
-  .tbl td:first-child{font-weight:600;white-space:nowrap}
-  .imo{display:block;font-weight:normal;color:var(--muted);font-size:12px}
-  @media (max-width:720px){
-    .tbl thead{display:none}
-    .tbl, .tbl tbody, .tbl tr, .tbl td{display:block;width:100%}
-    .tbl tr{border-bottom:1px solid var(--line);padding:10px 0}
-    .tbl td{border:0;padding:2px 0}
-    .tbl td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-size:12px}
-  }
+  .dates{font-family:var(--mono);font-size:13px;color:var(--sea);background:var(--sea-soft);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .sub{color:var(--muted);font-size:14.5px;margin:2px 0 18px}
+  .ships{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .ship{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .ship:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(15,42,68,.35);border-color:#cfdbe6}
+  .ship h4{font-family:var(--display);font-size:18px;font-weight:600;margin:0;color:var(--ink);display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  .ship h4 .yr{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--copper)}
+  .ship .imo{font-family:var(--mono);font-size:12px;color:var(--muted);margin:2px 0 12px}
+  .ship dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
+  .ship dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+  .ship dd{margin:0;color:var(--text)}
+  @media (max-width:700px){ .ships{grid-template-columns:1fr} }
 
-  /* Grids */
-  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  /* Cards */
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media (max-width:820px){ .grid3{grid-template-columns:1fr 1fr} }
-  @media (max-width:620px){ .grid2,.grid3{grid-template-columns:1fr} }
-  .card{background:#fff;border:1px solid var(--line);border-radius:4px;padding:20px}
-  .card .ctx{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
-  .card p{font-size:14px;color:var(--muted);margin:0}
-  .sys h3{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin:0 0 6px}
-  .sys p{font-size:14px;color:var(--ink)}
+  @media (max-width:1000px){ .grid3{grid-template-columns:1fr 1fr} }
+  @media (max-width:640px){ .grid2,.grid3{grid-template-columns:1fr} }
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(15,42,68,.35)}
+  .card .ctx{font-family:var(--mono);font-size:12px;color:var(--copper);margin:0 0 10px}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--muted);margin:0}
+  .sys h3{font-size:16px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .sys h3 i{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--sea-soft);color:var(--sea);font-style:normal;font-family:var(--mono);font-size:12px;font-weight:600}
+  .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+  .chips li{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--text)}
 
-  ul.clean{list-style:none;padding:0;margin:0}
-  ul.clean li{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
-  ul.clean li:last-child{border-bottom:0}
-  ul.clean small{display:block;color:var(--muted);font-size:13px}
+  /* Education / certificates */
+  .rows{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .rows li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;font-size:15px}
+  .rows li strong{color:var(--ink);font-weight:600}
+  .rows small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+  .rows.two{grid-template-columns:1fr 1fr}
+  @media (max-width:760px){ .rows.two{grid-template-columns:1fr} }
 
-  .contact{background:var(--sand)}
-  .contact .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-  .contact .btn{border-color:var(--navy);color:var(--navy)}
-  .contact .btn.primary{background:var(--navy);color:var(--sand)}
-  .contact .btn.primary:hover{background:var(--navy-2);color:#fff}
+  /* Contact */
+  .contact-card{position:relative;overflow:hidden;border-radius:28px;padding:56px;background:
+      radial-gradient(600px 300px at 90% 0%, rgba(75,143,189,.35), transparent 70%),
+      linear-gradient(135deg,#123352,#1c4a72);color:#e7eff6}
+  .contact-card::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000)}
+  .contact-card > *{position:relative;z-index:1}
+  .contact-card .num{color:#e0a35a}
+  .contact-card h2{color:#fff;font-size:clamp(30px,4vw,44px)}
+  .contact-card p{max-width:560px;color:#c9d8e6}
+  .contact-card .btn.primary{background:#fff;color:var(--ink)}
+  .contact-card .btn.primary:hover{background:var(--copper-soft);color:var(--ink)}
+  .contact-card .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+  .contact-card .btn.ghost:hover{background:rgba(255,255,255,.1)}
+  @media (max-width:640px){ .contact-card{padding:36px 26px;border-radius:22px} }
 
-  footer{padding:28px 0 40px;font-size:13px;color:var(--muted)}
-  footer .alt{margin-top:6px;font-size:12px;opacity:.85}
+  footer{padding:36px 0 48px;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  footer .alt{font-size:12px;opacity:.85}
+
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto!important} }
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#">Ognyan Baltadzhiev</a>
+    <a class="brand" href="#"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M14 40 L24 24 L32 36 L40 22 L50 40" fill="none" stroke="#e0a35a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Ognyan Baltadzhiev</a>
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -164,108 +240,137 @@
 <main>
 <div class="hero">
   <div class="wrap">
-    <div class="mono"><img src="photo.jpg" alt="Ognyan Baltadzhiev" width="140" height="140" onerror="this.remove()"><span class="mono-fallback" aria-hidden="true">OB</span></div>
     <div>
-      <h1>Ognyan Baltadzhiev</h1>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>1st Electrical Engineer &middot; Silversea Cruises</p>
+      <h1>Ognyan <span>Baltadzhiev</span></h1>
       <p class="role">Ship's Electrical Engineer &middot; ETO (STCW III/6)</p>
-      <p class="meta">1st Electrical Engineer, Silversea Cruises &middot; Varna, Bulgaria</p>
+      <p class="meta">Cruise ships &middot; Varna, Bulgaria</p>
       <p class="bio">I work on cruise-ship power plants: diesel-electric and dual-fuel generation, Azipod and electric propulsion, and integrated automation. I follow new marine power technology, including onboard DC grids, and I build digital tools for ship technical documentation.</p>
-      <a class="btn primary" href="#contact">Get in touch</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn profile</a>
+      <div class="actions">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn profile</a>
+      </div>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <div class="frame">
+        <span class="fallback" aria-hidden="true">OB</span>
+        <img src="photo.jpg" alt="Ognyan Baltadzhiev, Ship's Electrical Engineer, on board" width="400" height="400" onerror="this.remove()">
+      </div>
+      <figcaption class="tag"><b>STCW III/6</b>Electro-Technical Officer</figcaption>
+    </figure>
+  </div>
+  <div class="wrap wrap-specs">
+    <div class="specs">
+      <div><b>2017</b><span>At sea since</span></div>
+      <div><b>4 ships</b><span>with Silversea since 2023</span></div>
+      <div><b>&gt;&nbsp;1000&nbsp;V</b><span>High-voltage certified</span></div>
+      <div><b>W31DF</b><span>Dual-fuel diesel-electric</span></div>
     </div>
   </div>
 </div>
 
 <section id="about">
-  <div class="wrap prose">
-    <p class="kicker">About</p>
-    <h2>Engineer on board, focused on power and propulsion</h2>
-    <p>I'm a Ship's Electrical Engineer with a Certificate of Competency as Electro-Technical Officer (STCW III/6). Since 2023 I've served as 1st Electrical Engineer with Silversea Cruises: on the expedition ship Silver Endeavour (Azipod, ABB 800xA), the dual-fuel Silver Ray (Wärtsilä 31DF, VEM propulsion motors, Valmet DNA), Silver Whisper and Silver Dawn.</p>
-    <p>Before cruise ships I sailed as Electrical Officer on bulk carriers (Wärtsilä Sulzer RT-flex and MAN B&amp;W ME-B main engines) and on the 70,000 GT diesel-electric cruise ship Ambience.</p>
-    <p>My work covers power generation and LV/HV distribution, diesel-electric propulsion, automation and alarm systems, troubleshooting, and planned maintenance.</p>
-    <p>I follow where ship power systems are going. During my Master's at TU Varna I studied onboard DC grids in depth: ABB's Onboard DC Grid, solid-state DC breakers, and the efficiency gains for variable-speed operation.</p>
-    <p>In my own time I build tools that turn a ship's drawings, manuals and alarm lists into an indexed, searchable library. Every result points back to the original drawing and page, the originals are never changed, and the tools work offline. The aim is simple: find the right sensor, setpoint or circuit in minutes during a real alarm, using modern search, including AI-assisted search, while the engineer and the original documents stay in charge.</p>
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">01 / About</p>
+      <h2>Engineer on board, focused on power and propulsion</h2>
+    </div>
+    <div class="about-text">
+      <p>I'm a Ship's Electrical Engineer with a Certificate of Competency as Electro-Technical Officer (STCW III/6). Since 2023 I've served as 1st Electrical Engineer with Silversea Cruises: on the expedition ship Silver Endeavour (Azipod, ABB 800xA), the dual-fuel Silver Ray (Wärtsilä 31DF, VEM propulsion motors, Valmet DNA), Silver Whisper and Silver Dawn.</p>
+      <p>Before cruise ships I sailed as Electrical Officer on bulk carriers (Wärtsilä Sulzer RT-flex and MAN B&amp;W ME-B main engines) and on the 70,000 GT diesel-electric cruise ship Ambience.</p>
+      <p>My work covers power generation and LV/HV distribution, diesel-electric propulsion, automation and alarm systems, troubleshooting, and planned maintenance.</p>
+      <p>I follow where ship power systems are going. During my Master's at TU Varna I studied onboard DC grids in depth: ABB's Onboard DC Grid, solid-state DC breakers, and the efficiency gains for variable-speed operation.</p>
+      <p>In my own time I build tools that turn a ship's drawings, manuals and alarm lists into an indexed, searchable library. Every result points back to the original drawing and page, the originals are never changed, and the tools work offline. The aim is simple: find the right sensor, setpoint or circuit in minutes during a real alarm, using modern search, including AI-assisted search, while the engineer and the original documents stay in charge.</p>
+    </div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="wrap">
-    <p class="kicker">Experience</p>
-    <h2>Sea service</h2>
-    <p class="lead">Cruise, expedition and bulk carrier service since 2017. Exact contract dates are listed in my CV, available on request.</p>
-
-    <div class="job">
-      <div class="job-head">
-        <h3>Silversea Cruises &mdash; 1st Electrical Engineer</h3>
-        <span class="dates">2023 &ndash; present</span>
-      </div>
-      <p class="sub">Company rank: 1st Electrician</p>
-      <table class="tbl">
-        <thead><tr><th>Vessel</th><th>Type / size</th><th>Power &amp; propulsion</th><th>Service</th></tr></thead>
-        <tbody>
-          <tr><td>Silver Dawn<span class="imo">IMO 9857937</span></td><td data-l="Type">Cruise, 40,855 GT</td><td data-l="Plant">Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</td><td data-l="Service">2026</td></tr>
-          <tr><td>Silver Ray<span class="imo">IMO 9886225</span></td><td data-l="Type">Cruise, 55,051 GT</td><td data-l="Plant">Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</td><td data-l="Service">2025</td></tr>
-          <tr><td>Silver Whisper<span class="imo">IMO 9192179</span></td><td data-l="Type">Cruise, 28,258 GT</td><td data-l="Plant">Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</td><td data-l="Service">2024</td></tr>
-          <tr><td>Silver Endeavour<span class="imo">IMO 9821873</span></td><td data-l="Type">Expedition, 20,449 GT</td><td data-l="Plant">Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</td><td data-l="Service">2023 &ndash; 2024</td></tr>
-        </tbody>
-      </table>
+<section id="experience" class="tint">
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">02 / Experience</p>
+      <h2>Sea service</h2>
+      <p class="lead">Cruise, expedition and bulk carrier service since 2017. Exact contract dates are listed in my CV, available on request.</p>
     </div>
-
-    <div class="job">
-      <div class="job-head">
-        <h3>Ambassador Cruises &mdash; Ambience</h3>
-        <span class="dates">2022 &ndash; 2023</span>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-head">
+          <h3>Silversea Cruises &mdash; 1st Electrical Engineer</h3>
+          <span class="dates">2023 &ndash; present</span>
+        </div>
+        <p class="sub">Company rank: 1st Electrician</p>
+        <div class="ships">
+          <article class="ship"><h4>Silver Dawn <span class="yr">2026</span></h4><p class="imo">IMO 9857937</p>
+            <dl><dt>Type</dt><dd>Cruise, 40,855 GT</dd><dt>Plant</dt><dd>Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</dd></dl></article>
+          <article class="ship"><h4>Silver Ray <span class="yr">2025</span></h4><p class="imo">IMO 9886225</p>
+            <dl><dt>Type</dt><dd>Cruise, 55,051 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</dd></dl></article>
+          <article class="ship"><h4>Silver Whisper <span class="yr">2024</span></h4><p class="imo">IMO 9192179</p>
+            <dl><dt>Type</dt><dd>Cruise, 28,258 GT</dd><dt>Plant</dt><dd>Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</dd></dl></article>
+          <article class="ship"><h4>Silver Endeavour <span class="yr">2023 &ndash; 2024</span></h4><p class="imo">IMO 9821873</p>
+            <dl><dt>Type</dt><dd>Expedition, 20,449 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</dd></dl></article>
+        </div>
       </div>
-      <p class="sub">1st Electrical Officer (Engine), then Electronics Engineer &middot; IMO 8521232 &middot; 70,000 GT cruise ship</p>
-      <p>Diesel-electric plant: MAN 4 &times; 9.7 MW; Alstom propulsion motors 2 &times; 12 MW.</p>
-    </div>
 
-    <div class="job">
-      <div class="job-head">
-        <h3>Bulk carriers &mdash; Electrical Officer / Senior ETO</h3>
-        <span class="dates">2020 &ndash; 2022</span>
+      <div class="job">
+        <div class="job-head">
+          <h3>Ambassador Cruises &mdash; Ambience</h3>
+          <span class="dates">2022 &ndash; 2023</span>
+        </div>
+        <p class="sub">1st Electrical Officer (Engine), then Electronics Engineer &middot; IMO 8521232 &middot; 70,000 GT cruise ship</p>
+        <p>Diesel-electric plant: MAN 4 &times; 9.7 MW; Alstom propulsion motors 2 &times; 12 MW.</p>
       </div>
-      <table class="tbl">
-        <thead><tr><th>Vessel</th><th>Company</th><th>Main engine</th><th>Rank</th></tr></thead>
-        <tbody>
-          <tr><td>Nordsun<span class="imo">IMO 9705158 &middot; 61,559 DWT</span></td><td data-l="Company">Reederei Nord</td><td data-l="Engine">MAN B&amp;W S50ME-B9.3, 8.13 MW</td><td data-l="Rank">Senior ETO</td></tr>
-          <tr><td>Warmia<span class="imo">IMO 9285146 &middot; 38,981 DWT</span></td><td data-l="Company">Polsteam (PŻM)</td><td data-l="Engine">Wärtsilä Sulzer, 7.88 MW</td><td data-l="Rank">Electrical Officer</td></tr>
-          <tr><td>Diamond Sea<span class="imo">IMO 9468152 &middot; 55,437 DWT</span></td><td data-l="Company">IHB Shipping</td><td data-l="Engine">Wärtsilä Sulzer RT-flex, 8.89 MW</td><td data-l="Rank">Electrical Officer (two contracts)</td></tr>
-        </tbody>
-      </table>
-    </div>
 
-    <div class="job">
-      <div class="job-head">
-        <h3>Earlier service</h3>
-        <span class="dates">2017 &ndash; 2019</span>
+      <div class="job">
+        <div class="job-head">
+          <h3>Bulk carriers &mdash; Electrical Officer / Senior ETO</h3>
+          <span class="dates">2020 &ndash; 2022</span>
+        </div>
+        <div class="ships">
+          <article class="ship"><h4>Nordsun</h4><p class="imo">IMO 9705158 &middot; 61,559 DWT</p>
+            <dl><dt>Company</dt><dd>Reederei Nord</dd><dt>Engine</dt><dd>MAN B&amp;W S50ME-B9.3, 8.13 MW</dd><dt>Rank</dt><dd>Senior ETO</dd></dl></article>
+          <article class="ship"><h4>Warmia</h4><p class="imo">IMO 9285146 &middot; 38,981 DWT</p>
+            <dl><dt>Company</dt><dd>Polsteam (PŻM)</dd><dt>Engine</dt><dd>Wärtsilä Sulzer, 7.88 MW</dd><dt>Rank</dt><dd>Electrical Officer</dd></dl></article>
+          <article class="ship"><h4>Diamond Sea</h4><p class="imo">IMO 9468152 &middot; 55,437 DWT</p>
+            <dl><dt>Company</dt><dd>IHB Shipping</dd><dt>Engine</dt><dd>Wärtsilä Sulzer RT-flex, 8.89 MW</dd><dt>Rank</dt><dd>Electrical Officer (two contracts)</dd></dl></article>
+        </div>
       </div>
-      <p>Assistant Electrical Engineer on multipurpose, bulk and research vessels, plus passenger-ship dry-dock work.</p>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>Earlier service</h3>
+          <span class="dates">2017 &ndash; 2019</span>
+        </div>
+        <p class="sub" style="margin-bottom:0">Assistant Electrical Engineer on multipurpose, bulk and research vessels, plus passenger-ship dry-dock work.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="systems">
-  <div class="wrap">
-    <p class="kicker">Systems</p>
-    <h2>Equipment and areas of work</h2>
-    <p class="lead">Makers and systems I have worked with on board or studied in depth.</p>
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">03 / Systems</p>
+      <h2>Equipment and areas of work</h2>
+      <p class="lead">Makers and systems I have worked with on board or studied in depth.</p>
+    </div>
     <div class="grid3">
-      <div class="card sys"><h3>Engines</h3><p>Wärtsilä 31DF (dual-fuel), Wärtsilä 38, Wärtsilä Sulzer RT-flex, MAN B&amp;W ME-B, MAN</p></div>
-      <div class="card sys"><h3>Propulsion</h3><p>ABB Azipod, VEM and Alstom propulsion motors, controllable-pitch propellers</p></div>
-      <div class="card sys"><h3>Automation</h3><p>ABB 800xA, Valmet DNA, alarm and monitoring systems, power management</p></div>
-      <div class="card sys"><h3>Power</h3><p>HV/LV generation and distribution (&gt; 1000 V), diesel-electric plants</p></div>
-      <div class="card sys"><h3>Fuel &amp; regulation</h3><p>IGF Code, LNG and dual-fuel operations</p></div>
-      <div class="card sys"><h3>DC &amp; new power</h3><p>Onboard DC grids, solid-state DC protection, photovoltaic system sizing</p></div>
+      <div class="card sys"><h3><i>EN</i>Engines</h3><ul class="chips"><li>Wärtsilä 31DF (dual-fuel)</li><li>Wärtsilä 38</li><li>Wärtsilä Sulzer RT-flex</li><li>MAN B&amp;W ME-B</li><li>MAN</li></ul></div>
+      <div class="card sys"><h3><i>PR</i>Propulsion</h3><ul class="chips"><li>ABB Azipod</li><li>VEM and Alstom propulsion motors</li><li>Controllable-pitch propellers</li></ul></div>
+      <div class="card sys"><h3><i>AU</i>Automation</h3><ul class="chips"><li>ABB 800xA</li><li>Valmet DNA</li><li>Alarm and monitoring systems</li><li>Power management</li></ul></div>
+      <div class="card sys"><h3><i>PW</i>Power</h3><ul class="chips"><li>HV/LV generation and distribution (&gt; 1000 V)</li><li>Diesel-electric plants</li></ul></div>
+      <div class="card sys"><h3><i>FU</i>Fuel &amp; regulation</h3><ul class="chips"><li>IGF Code</li><li>LNG and dual-fuel operations</li></ul></div>
+      <div class="card sys"><h3><i>DC</i>DC &amp; new power</h3><ul class="chips"><li>Onboard DC grids</li><li>Solid-state DC protection</li><li>Photovoltaic system sizing</li></ul></div>
     </div>
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <p class="kicker">Projects</p>
-    <h2>Engineering and study projects</h2>
-    <p class="lead">Design and research work from TU Varna, and an ongoing personal project.</p>
+<section id="projects" class="tint">
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">04 / Projects</p>
+      <h2>Engineering and study projects</h2>
+      <p class="lead">Design and research work from TU Varna, and an ongoing personal project.</p>
+    </div>
     <div class="grid2">
       <div class="card"><p class="ctx">Master's, TU Varna</p><h3>Onboard DC grid case study: ABB Onboard DC Grid on Dina Star</h3><p>DC versus AC distribution on a DP offshore supply vessel: solid-state DC breakers, cooling, fuel savings at variable speed, and class guidance (DNV, Korean Register).</p></div>
       <div class="card"><p class="ctx">TU Varna, 2020</p><h3>Ship's electrical power plant design</h3><p>Load balance, generator sizing, distribution scheme, cable and busbar selection, protection, short-circuit calculation, and the main switchboard generator-panel schematic.</p></div>
@@ -278,22 +383,26 @@
 </section>
 
 <section id="education">
-  <div class="wrap">
-    <p class="kicker">Education</p>
-    <h2>Technical University of Varna</h2>
-    <ul class="clean">
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">05 / Education</p>
+      <h2>Technical University of Varna</h2>
+    </div>
+    <ul class="rows two">
       <li><strong>Master's degree, Electrical Equipment of Ships</strong><small>All coursework and exams completed; diploma project in progress. Course essay: onboard DC grids for ships.</small></li>
       <li><strong>Electrical Equipment of Ships</strong> (5-year programme), 2016 &ndash; 2021<small>Qualification: Ship's Electrical Engineer</small></li>
     </ul>
   </div>
 </section>
 
-<section id="certificates">
-  <div class="wrap">
-    <p class="kicker">Certificates</p>
-    <h2>Competency and training</h2>
-    <p class="lead">Certificate numbers and copies are provided to employers on request.</p>
-    <ul class="clean">
+<section id="certificates" class="tint">
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">06 / Certificates</p>
+      <h2>Competency and training</h2>
+      <p class="lead">Certificate numbers and copies are provided to employers on request.</p>
+    </div>
+    <ul class="rows two">
       <li><strong>Certificate of Competency: Electro-Technical Officer, STCW III/6</strong><small>Bulgarian Maritime Administration; flag endorsements: Bahamas, Portugal</small></li>
       <li><strong>Safe operation and maintenance of power systems in excess of 1000 V</strong></li>
       <li><strong>Advanced training for ships subject to the IGF Code</strong> (2025)<small>Also: basic IGF training; basic LNG tanker cargo operations</small></li>
@@ -304,14 +413,16 @@
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
   <div class="wrap">
-    <p class="kicker">Contact</p>
-    <h2>Get in touch</h2>
-    <p class="prose">For crewing, technical questions or collaboration, email me or message me on LinkedIn. While at sea I reply when connectivity allows.</p>
-    <div class="row">
-      <a class="btn primary" href="mailto:contact@ognyanbaltadzhiev.com">contact@ognyanbaltadzhiev.com</a>
-      <a class="btn" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn</a>
+    <div class="contact-card">
+      <p class="num">07 / Contact</p>
+      <h2>Get in touch</h2>
+      <p>For crewing, technical questions or collaboration, email me or message me on LinkedIn. While at sea I reply when connectivity allows.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:contact@ognyanbaltadzhiev.com">contact@ognyanbaltadzhiev.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
@@ -319,7 +430,7 @@
 
 <footer>
   <div class="wrap">
-    &copy; <span id="y">2026</span> Ognyan Baltadzhiev &middot; Varna, Bulgaria
+    <div>&copy; <span id="y">2026</span> Ognyan Baltadzhiev &middot; Varna, Bulgaria</div>
     <div class="alt">Also spelled: Ognian Baltadzhiev, Ognyan Baltadjiev, Ognyan Baltadziev &middot; Огнян Балтаджиев</div>
   </div>
 </footer>
