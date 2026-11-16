@@ -15,7 +15,7 @@
 <meta property="profile:first_name" content="Ognyan">
 <meta property="profile:last_name" content="Baltadzhiev">
 <meta name="theme-color" content="#e3eef6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a44'/%3E%3Cpath d='M14 40 L24 24 L32 36 L40 22 L50 40' fill='none' stroke='%23e0a35a' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a44'/%3E%3Cpath d='M46 20 A17 17 0 1 0 49 32' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M39 18.5 L46.5 19.5 L47.5 12' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 19 L25 34 H32 L29 45 L39 29 H32 Z' fill='%23e0a35a'/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -212,6 +212,8 @@
   .contact-card .btn.primary:hover{background:var(--copper-soft);color:var(--ink)}
   .contact-card .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
   .contact-card .btn.ghost:hover{background:rgba(255,255,255,.1)}
+  .contact-card .btn.wa{background:#25d366;color:#0b3d22}
+  .contact-card .btn.wa:hover{background:#3ee07a;color:#0b3d22;transform:translateY(-2px)}
   @media (max-width:640px){ .contact-card{padding:36px 26px;border-radius:22px} }
 
   footer{padding:36px 0 48px;font-size:13px;color:var(--muted)}
@@ -225,7 +227,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M14 40 L24 24 L32 36 L40 22 L50 40" fill="none" stroke="#e0a35a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Ognyan Baltadzhiev</a>
+    <a class="brand" href="#"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M46 20 A17 17 0 1 0 49 32" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round"/><path d="M39 18.5 L46.5 19.5 L47.5 12" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 19 L25 34 H32 L29 45 L39 29 H32 Z" fill="#e0a35a"/></svg>Ognyan Baltadzhiev</a>
     <nav aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
@@ -418,9 +420,10 @@
     <div class="contact-card">
       <p class="num">07 / Contact</p>
       <h2>Get in touch</h2>
-      <p>For crewing, technical questions or collaboration, email me or message me on LinkedIn. While at sea I reply when connectivity allows.</p>
+      <p>For crewing, technical questions or collaboration, email me, or message me on WhatsApp or LinkedIn. While at sea I reply when connectivity allows.</p>
       <div class="actions">
         <a class="btn primary" href="mailto:contact@ognyanbaltadzhiev.com">contact@ognyanbaltadzhiev.com</a>
+        <a class="btn wa" href="https://wa.me/qr/CD4SWMSLY7HCB1" target="_blank" rel="noopener nofollow"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 1a4.5 4.5 0 0 1-2.4-2.4l1-1-1-2Z" fill="currentColor"/></svg>WhatsApp</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn</a>
       </div>
     </div>
