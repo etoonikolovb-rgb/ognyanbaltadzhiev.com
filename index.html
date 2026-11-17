@@ -168,7 +168,7 @@
   @media (max-width:480px){ .portrait{max-width:300px} .portrait::before{inset:14px -14px -14px 14px} .eyebrow{font-size:11px;letter-spacing:0} }
 
   /* Sections: label column on the left, content across the width */
-  section{padding:88px 0}
+  section{padding:64px 0}
   .split{display:grid;grid-template-columns:260px 1fr;gap:56px}
   .label{position:sticky;top:100px;align-self:start}
   .num{font-family:var(--mono);font-size:13px;color:var(--copper-text);letter-spacing:.06em;margin:0 0 10px;display:flex;align-items:center;gap:10px}
@@ -176,7 +176,7 @@
   h2{font-family:var(--display);font-weight:600;color:var(--ink);font-size:34px;line-height:1.1;letter-spacing:-.025em;margin:0 0 12px}
   .label .lead{font-size:14.5px;color:var(--muted);margin:0}
   @media (max-width:900px){
-    section{padding:64px 0}
+    section{padding:48px 0}
     .split{grid-template-columns:1fr;gap:26px}
     .label{position:static}
   }
@@ -216,6 +216,15 @@
   @media (max-width:640px){ .grid2,.grid3{grid-template-columns:1fr} }
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,box-shadow .25s}
   .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(15,42,68,.35)}
+  .card.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:10px 40px;padding:28px}
+  .card.wide .intro p{margin-bottom:12px}
+  .card.wide .src{font-size:12.5px;color:var(--muted);margin:0}
+  .card.wide .src a{color:var(--sea-text)}
+  .gains{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:g}
+  .gains li{position:relative;padding:14px 16px 14px 54px;background:var(--bg);border:1px solid var(--line);border-radius:14px;font-size:14.5px;color:var(--text)}
+  .gains li::before{counter-increment:g;content:counter(g);position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--sea-soft);color:var(--sea-text);font-family:var(--mono);font-size:13px;font-weight:600}
+  .gains b{display:block;color:var(--ink);font-family:var(--display);font-weight:600;font-size:15.5px;margin-bottom:2px}
+  @media (max-width:820px){ .card.wide{grid-template-columns:1fr} }
   .card .ctx{font-family:var(--mono);font-size:12px;color:var(--copper-text);margin:0 0 10px}
   .card h3{font-size:18px;margin-bottom:8px}
   .card p{font-size:14.5px;color:var(--muted);margin:0}
@@ -376,13 +385,13 @@
         <p class="sub">Four passenger ships, 20,000&ndash;55,000 GT, diesel-electric and dual-fuel</p>
         <div class="ships">
           <article class="ship"><h4>Cruise ship <span class="yr">2026</span></h4><p class="imo">Diesel-electric</p>
-            <dl><dt>Size</dt><dd>40,855 GT</dd><dt>Plant</dt><dd>Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</dd></dl></article>
+            <dl><dt>Size</dt><dd>~41,000 GT</dd><dt>Plant</dt><dd>Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</dd></dl></article>
           <article class="ship"><h4>Cruise ship <span class="yr">2025</span></h4><p class="imo">Dual-fuel, LNG</p>
-            <dl><dt>Size</dt><dd>55,051 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</dd></dl></article>
+            <dl><dt>Size</dt><dd>~55,000 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</dd></dl></article>
           <article class="ship"><h4>Cruise ship <span class="yr">2024</span></h4><p class="imo">Diesel, controllable-pitch propellers</p>
-            <dl><dt>Size</dt><dd>28,258 GT</dd><dt>Plant</dt><dd>Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</dd></dl></article>
+            <dl><dt>Size</dt><dd>~28,000 GT</dd><dt>Plant</dt><dd>Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</dd></dl></article>
           <article class="ship"><h4>Expedition ship <span class="yr">2023 &ndash; 2024</span></h4><p class="imo">Diesel-electric, podded</p>
-            <dl><dt>Size</dt><dd>20,449 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</dd></dl></article>
+            <dl><dt>Size</dt><dd>~20,000 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</dd></dl></article>
         </div>
       </div>
 
@@ -402,11 +411,11 @@
         </div>
         <p class="sub">Three bulk carriers, 39,000&ndash;62,000 DWT</p>
         <div class="ships">
-          <article class="ship"><h4>Bulk carrier <span class="yr">2022</span></h4><p class="imo">61,559 DWT</p>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2022</span></h4><p class="imo">~62,000 DWT</p>
             <dl><dt>Engine</dt><dd>MAN B&amp;W S50ME-B9.3, 8.13 MW</dd></dl></article>
-          <article class="ship"><h4>Bulk carrier <span class="yr">2021 &ndash; 2022</span></h4><p class="imo">38,981 DWT</p>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2021 &ndash; 2022</span></h4><p class="imo">~39,000 DWT</p>
             <dl><dt>Engine</dt><dd>Wärtsilä Sulzer, 7.88 MW</dd></dl></article>
-          <article class="ship"><h4>Bulk carrier <span class="yr">2020 &ndash; 2021</span></h4><p class="imo">55,437 DWT</p>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2020 &ndash; 2021</span></h4><p class="imo">~55,000 DWT</p>
             <dl><dt>Engine</dt><dd>Wärtsilä Sulzer RT-flex, 8.89 MW</dd></dl></article>
         </div>
       </div>
@@ -445,15 +454,28 @@
     <div class="label">
       <p class="num">05 / Projects</p>
       <h2>Engineering and study projects</h2>
-      <p class="lead">Design and research work from TU Varna, and one ongoing personal project.</p>
+      <p class="lead">Newest first. Design and research work from TU Varna, and one ongoing personal project.</p>
     </div>
     <div class="grid2">
-      <div class="card"><p class="ctx">Master's, TU Varna</p><h3>Onboard DC grid case study: ABB Onboard DC Grid on Dina Star</h3><p>DC versus AC distribution on a DP offshore supply vessel: solid-state DC breakers, cooling, fuel savings at variable speed, and class guidance (DNV, Korean Register).</p></div>
-      <div class="card"><p class="ctx">TU Varna, 2020</p><h3>Ship's electrical power plant design</h3><p>Load balance, generator sizing, distribution scheme, cable and busbar selection, protection, short-circuit calculation, and the main switchboard generator-panel schematic.</p></div>
-      <div class="card"><p class="ctx">TU Varna</p><h3>PLC control of a 30 t ship's deck crane</h3><p>Hoist, luffing and slewing control on a Moeller easy PLC, with interlocks and limits, based on a real shipyard crane drawing.</p></div>
-      <div class="card"><p class="ctx">Master's, TU Varna</p><h3>Photovoltaic system topology, wiring and sizing</h3><p>PV topologies, electrical scheme selection and structural sizing.</p></div>
-      <div class="card"><p class="ctx">Personal, ongoing</p><h3>Digital toolkit for ship technical documentation</h3><p>Python tools that register, OCR, split, name and index thousands of drawings and manuals into a traceable library. Every search result cites the original drawing and page.</p></div>
-      <div class="card"><p class="ctx">TU Varna</p><h3>Electric propulsion and microcontroller lab work</h3><p>Drive measurements and circuit simulation; stepper-motor and display control in assembly language.</p></div>
+      <div class="card"><p class="ctx">Personal &middot; 2026 &ndash; ongoing</p><h3>Digital toolkit for ship technical documentation</h3><p>Python tools that register, OCR, split, name and index thousands of drawings and manuals into a traceable library. Every search result cites the original drawing and page.</p></div>
+      <div class="card"><p class="ctx">Master's, TU Varna &middot; 2025</p><h3>Photovoltaic system topology, wiring and sizing</h3><p>PV topologies, electrical scheme selection and structural sizing.</p></div>
+      <div class="card wide">
+        <div class="intro">
+          <p class="ctx">Master's, TU Varna &middot; 2023</p>
+          <h3>DC distribution on ships: ABB Onboard DC Grid&trade;</h3>
+          <p>Course essay on one of the newest directions in marine power: replacing AC main switchboards with a common DC grid that engines, propulsion drives, batteries and consumers all connect to. Also covered: solid-state DC circuit breakers and fault protection, cooling, and class guidance (DNV, Korean Register).</p>
+          <p class="src">Benefits as described by ABB: <a href="https://www.abb.com/global/en/industries/marine/solutions/power/onboard-dc-grid" rel="noopener">abb.com, Onboard DC Grid&trade;</a>. Onboard DC Grid is a trademark of ABB.</p>
+        </div>
+        <ol class="gains">
+          <li><b>Lower fuel and maintenance costs</b>Diesel engines run at variable speed, close to their optimal load point: less fuel, less wear, lower emissions, and longer intervals between maintenance.</li>
+          <li><b>Space, weight and cost</b>Less cabling and fewer conversion stages than an AC plant; ABB quotes a footprint up to 30% smaller.</li>
+          <li><b>Different energy sources on one grid</b>Batteries, fuel cells and other DC sources connect with fewer conversion stages, and can be added or changed over the ship's life.</li>
+        </ol>
+      </div>
+      <div class="card"><p class="ctx">TU Varna &middot; 2021</p><h3>Electric propulsion laboratory work</h3><p>Drive measurements and circuit simulation for ship electric propulsion.</p></div>
+      <div class="card"><p class="ctx">TU Varna &middot; 2020</p><h3>Ship's electrical power plant design</h3><p>Load balance, generator sizing, distribution scheme, cable and busbar selection, protection, short-circuit calculation, and the main switchboard generator-panel schematic.</p></div>
+      <div class="card"><p class="ctx">TU Varna &middot; 2019</p><h3>PLC control of a 30 t ship's deck crane</h3><p>Hoist, luffing and slewing control on a Moeller easy PLC, with interlocks and limits, based on a real shipyard crane drawing.</p></div>
+      <div class="card"><p class="ctx">TU Varna &middot; 2018</p><h3>Microcontroller control in assembly</h3><p>Stepper-motor and display control, and logic design, programmed in assembly language.</p></div>
     </div>
   </div>
 </section>
