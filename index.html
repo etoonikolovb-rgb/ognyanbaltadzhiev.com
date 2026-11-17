@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ognyan Baltadzhiev – Ship's Electrical Engineer (ETO)</title>
-<meta name="description" content="Ognyan Baltadzhiev – Ship's Electrical Engineer (ETO, STCW III/6) from Varna, Bulgaria. 1st Electrical Engineer on Silversea cruise ships: diesel-electric and dual-fuel power plants, Azipod, integrated automation, onboard DC grids.">
+<title>Ognyan Baltadzhiev – Electrical Engineering &amp; Systems Architecture</title>
+<meta name="description" content="Ognyan Baltadzhiev, marine electrical engineer (ETO). Ship power plants, electric propulsion, automation and onboard DC grids. Based in Varna, Bulgaria.">
 <link rel="canonical" href="https://ognyanbaltadzhiev.com/">
 <meta name="author" content="Ognyan Baltadzhiev">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Ognyan Baltadzhiev – Ship's Electrical Engineer (ETO)">
-<meta property="og:description" content="1st Electrical Engineer on cruise ships. Diesel-electric and dual-fuel plants, Azipod, automation, onboard DC grids.">
+<meta property="og:title" content="Ognyan Baltadzhiev – Electrical Engineering &amp; Systems Architecture">
+<meta property="og:description" content="Marine electrical engineering: ship power plants, electric propulsion, automation, onboard DC grids.">
 <meta property="og:image" content="https://ognyanbaltadzhiev.com/photo.jpg">
 <meta property="og:url" content="https://ognyanbaltadzhiev.com/">
 <meta property="profile:first_name" content="Ognyan">
@@ -29,21 +29,34 @@
   "familyName": "Baltadzhiev",
   "alternateName": ["Ognian Baltadzhiev", "Ognyan Baltadjiev", "Ognyan Baltadziev", "Ognian Baltadjiev", "Огнян Балтаджиев"],
   "url": "https://ognyanbaltadzhiev.com/",
-  "jobTitle": "Ship's Electrical Engineer",
-  "description": "Ship's Electrical Engineer (Electro-Technical Officer, STCW III/6) serving as 1st Electrical Engineer on Silversea cruise ships.",
-  "worksFor": { "@type": "Organization", "name": "Silversea Cruises" },
+  "jobTitle": "Marine Electrical Engineer",
+  "description": "Marine electrical engineer (Electro-Technical Officer, STCW III/6) specializing in ship power plants, electric propulsion and integrated automation, with an interest in electrical systems architecture and onboard DC grids.",
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Marine Electrical Engineer",
+    "occupationalCategory": "Electrical engineering, ship power and propulsion systems",
+    "skills": "Diesel-electric and dual-fuel power plants, electric propulsion, HV/LV distribution, integrated automation, onboard DC grids, technical documentation systems"
+  },
   "homeLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Varna", "addressCountry": "BG" } },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Technical University of Varna", "sameAs": "https://www.tu-varna.bg/" },
-  "hasCredential": {
-    "@type": "EducationalOccupationalCredential",
-    "name": "Certificate of Competency – Electro-Technical Officer (STCW III/6)",
-    "credentialCategory": "Certificate of Competency",
-    "recognizedBy": { "@type": "GovernmentOrganization", "name": "Bulgarian Maritime Administration" }
-  },
-  "knowsAbout": ["Marine electrical engineering", "Diesel-electric propulsion", "Dual-fuel engines", "Wärtsilä 31DF", "ABB Azipod", "ABB 800xA", "Valmet DNA", "High-voltage distribution", "Power management systems", "Onboard DC grids", "IGF Code", "Ship technical documentation"],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Certificate of Competency – Electro-Technical Officer (STCW III/6)",
+      "credentialCategory": "Certificate of Competency",
+      "recognizedBy": { "@type": "GovernmentOrganization", "name": "Bulgarian Maritime Administration" }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Ship's Electrical Engineer – Electrical Equipment of Ships",
+      "credentialCategory": "degree",
+      "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Technical University of Varna" }
+    }
+  ],
+  "knowsAbout": ["Marine electrical engineering", "Electrical systems architecture", "Diesel-electric propulsion", "Dual-fuel engines", "Wärtsilä 31DF", "ABB Azipod", "ABB 800xA", "Valmet DNA", "High-voltage distribution", "Power management systems", "Onboard DC grids", "IGF Code", "Ship technical documentation"],
   "knowsLanguage": ["en", "bg"],
   "image": "https://ognyanbaltadzhiev.com/photo.jpg",
-  "sameAs": ["https://www.linkedin.com/in/ognyan-baltadzhiev"]
+  "sameAs": ["https://www.linkedin.com/in/ognyan-baltadzhiev/"]
 }
 </script>
 
@@ -59,7 +72,7 @@
   :root{
     --bg:#f4f7fa; --surface:#ffffff; --ink:#0f2a44; --text:#28394b; --muted:#5f6e7d;
     --line:#e1e8ef; --sea:#2f6f98; --sea-2:#4b8fbd; --sea-soft:#dcebf5; --sky:#e3eef6;
-    --copper:#c27c33; --copper-soft:#f6e7d4;
+    --copper:#c27c33; --copper-text:#8f5418; --copper-soft:#f6e7d4; --sea-text:#275f84;
     --display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
     --sans:"Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     --mono:"JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
@@ -69,20 +82,33 @@
   html{scroll-behavior:smooth;scroll-padding-top:80px}
   body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:var(--sea);text-underline-offset:3px}
-  a:hover{color:var(--copper)}
+  a:hover{color:var(--copper-text)}
   img{max-width:100%}
   .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
   @media (max-width:640px){ .wrap{padding:0 20px} }
 
   /* Header: floats over the hero, no dividing line */
   header.top{position:sticky;top:0;z-index:20;background:rgba(227,238,246,.72);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
-  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  header.top .wrap{position:relative;display:flex;align-items:center;justify-content:space-between;height:66px}
   .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
   .brand svg{flex:none}
-  nav{display:flex;gap:4px}
+  nav{display:flex;gap:2px}
   nav a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .2s,color .2s}
   nav a:hover{background:rgba(255,255,255,.75);color:var(--ink)}
-  @media (max-width:900px){ nav{display:none} }
+  .menu-btn{display:none;align-items:center;gap:8px;font:600 14px var(--sans);color:var(--ink);background:rgba(255,255,255,.8);border:1px solid rgba(15,42,68,.12);border-radius:999px;padding:8px 14px;cursor:pointer}
+  .menu-btn .bars{position:relative;width:16px;height:2px;background:currentColor;border-radius:2px;transition:background .2s}
+  .menu-btn .bars::before,.menu-btn .bars::after{content:"";position:absolute;left:0;width:16px;height:2px;background:currentColor;border-radius:2px;transition:transform .2s}
+  .menu-btn .bars::before{top:-5px}.menu-btn .bars::after{top:5px}
+  header.top.open .menu-btn .bars{background:transparent}
+  header.top.open .menu-btn .bars::before{transform:translateY(5px) rotate(45deg)}
+  header.top.open .menu-btn .bars::after{transform:translateY(-5px) rotate(-45deg)}
+  @media (max-width:1000px){
+    .menu-btn{display:inline-flex}
+    nav{display:none;position:absolute;top:62px;right:20px;left:20px;flex-direction:column;gap:2px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 48px -20px rgba(15,42,68,.35)}
+    header.top.open nav{display:flex}
+    nav a{font-size:16px;padding:12px 16px;border-radius:12px;color:var(--ink)}
+    nav a:hover{background:var(--bg)}
+  }
 
   /* Hero: light sky that fades into the page */
   .hero{position:relative;margin-top:-66px;padding:130px 0 90px;overflow:hidden;
@@ -145,7 +171,7 @@
   section{padding:88px 0}
   .split{display:grid;grid-template-columns:260px 1fr;gap:56px}
   .label{position:sticky;top:100px;align-self:start}
-  .num{font-family:var(--mono);font-size:13px;color:var(--copper);letter-spacing:.06em;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+  .num{font-family:var(--mono);font-size:13px;color:var(--copper-text);letter-spacing:.06em;margin:0 0 10px;display:flex;align-items:center;gap:10px}
   .num::after{content:"";width:36px;height:2px;background:var(--copper);opacity:.6;border-radius:2px}
   h2{font-family:var(--display);font-weight:600;color:var(--ink);font-size:34px;line-height:1.1;letter-spacing:-.025em;margin:0 0 12px}
   .label .lead{font-size:14.5px;color:var(--muted);margin:0}
@@ -170,13 +196,13 @@
   .job:last-child{margin-bottom:0}
   .job::before{content:"";position:absolute;left:-34px;top:7px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--copper)}
   .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-  .dates{font-family:var(--mono);font-size:13px;color:var(--sea);background:var(--sea-soft);padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .dates{font-family:var(--mono);font-size:13px;color:var(--sea-text);background:var(--sea-soft);padding:3px 10px;border-radius:999px;white-space:nowrap}
   .sub{color:var(--muted);font-size:14.5px;margin:2px 0 18px}
   .ships{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .ship{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
   .ship:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(15,42,68,.35);border-color:#cfdbe6}
   .ship h4{font-family:var(--display);font-size:18px;font-weight:600;margin:0;color:var(--ink);display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-  .ship h4 .yr{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--copper)}
+  .ship h4 .yr{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--copper-text)}
   .ship .imo{font-family:var(--mono);font-size:12px;color:var(--muted);margin:2px 0 12px}
   .ship dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
   .ship dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
@@ -190,11 +216,11 @@
   @media (max-width:640px){ .grid2,.grid3{grid-template-columns:1fr} }
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .25s,box-shadow .25s}
   .card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(15,42,68,.35)}
-  .card .ctx{font-family:var(--mono);font-size:12px;color:var(--copper);margin:0 0 10px}
+  .card .ctx{font-family:var(--mono);font-size:12px;color:var(--copper-text);margin:0 0 10px}
   .card h3{font-size:18px;margin-bottom:8px}
   .card p{font-size:14.5px;color:var(--muted);margin:0}
   .sys h3{font-size:16px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .sys h3 i{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--sea-soft);color:var(--sea);font-style:normal;font-family:var(--mono);font-size:12px;font-weight:600}
+  .sys h3 i{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--sea-soft);color:var(--sea-text);font-style:normal;font-family:var(--mono);font-size:12px;font-weight:600}
   .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
   .chips li{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--text)}
 
@@ -212,7 +238,7 @@
       linear-gradient(135deg,#123352,#1c4a72);color:#e7eff6}
   .contact-card::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000)}
   .contact-card > *{position:relative;z-index:1}
-  .contact-card .num{color:#e0a35a}
+  .contact-card .num{color:#ecb878}
   .contact-card h2{color:#fff;font-size:clamp(30px,4vw,44px)}
   .contact-card p{max-width:560px;color:#c9d8e6}
   .contact-card .btn.primary{background:#fff;color:var(--ink)}
@@ -232,6 +258,18 @@
     .contact-card .addr{display:block;margin:18px 0 0;font-size:15px;font-weight:500;color:#dbe7f2;max-width:100%;overflow-wrap:anywhere;user-select:all}
   }
 
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;counter-reset:p}
+  .principle{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px 22px 70px}
+  .principle::before{counter-increment:p;content:counter(p,decimal-leading-zero);position:absolute;left:22px;top:22px;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--copper-text);background:var(--copper-soft);border-radius:10px;width:34px;height:34px;display:grid;place-items:center}
+  .principle h3{font-size:18px;margin-bottom:6px}
+  .principle p{font-size:14.5px;color:var(--muted);margin:0}
+  @media (max-width:700px){ .principles{grid-template-columns:1fr} }
+  .recruit{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;margin:0 0 26px;padding:16px 20px;border:1px solid rgba(255,255,255,.18);border-radius:16px;background:rgba(255,255,255,.06);font-size:14.5px;color:#dbe7f2;max-width:720px}
+  .recruit ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .recruit li::before{content:"✓ ";color:#ecb878}
+  .recruit a{color:#fff;font-weight:600}
+  .recruit a:hover{color:#ecb878}
+  .signoff{font-family:var(--display);font-size:20px;color:var(--ink);letter-spacing:-.01em;margin:28px 0 0;column-span:all}
   footer{padding:36px 0 48px;font-size:13px;color:var(--muted)}
   footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
   footer .alt{font-size:12px;opacity:.85}
@@ -243,36 +281,38 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M46 20 A17 17 0 1 0 49 32" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round"/><path d="M39 18.5 L46.5 19.5 L47.5 12" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 19 L25 34 H32 L29 45 L39 29 H32 Z" fill="#e0a35a"/></svg>Ognyan Baltadzhiev</a>
-    <nav aria-label="Sections">
+    <a class="brand" href="#top" aria-label="Ognyan Baltadzhiev – back to top"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M46 20 A17 17 0 1 0 49 32" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round"/><path d="M39 18.5 L46.5 19.5 L47.5 12" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 19 L25 34 H32 L29 45 L39 29 H32 Z" fill="#e0a35a"/></svg>Ognyan Baltadzhiev</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span>Menu</button>
+    <nav id="site-nav" aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#systems">Systems</a>
       <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
       <a href="#certificates">Certificates</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main>
+<main id="top">
 <div class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>1st Electrical Engineer &middot; Silversea Cruises</p>
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Marine power &middot; propulsion &middot; automation</p>
       <h1>Ognyan <span>Baltadzhiev</span></h1>
-      <p class="role">Ship's Electrical Engineer &middot; ETO (STCW III/6)</p>
-      <p class="meta">Cruise ships &middot; Varna, Bulgaria</p>
-      <p class="bio">I work on cruise-ship power plants: diesel-electric and dual-fuel generation, Azipod and electric propulsion, and integrated automation. I follow new marine power technology, including onboard DC grids, and I build digital tools for ship technical documentation.</p>
+      <p class="role">Electrical Engineering &middot; Systems Architecture</p>
+      <p class="meta">Varna, Bulgaria &middot; usually somewhere at sea</p>
+      <p class="bio">Specializing in ship power plants: diesel-electric and dual-fuel generation, electric propulsion and integrated automation. Interested in onboard DC grids, and in making a ship's technical documentation fast to search and safe to trust.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Get in touch</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn profile</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev/" rel="me noopener">LinkedIn profile</a>
       </div>
     </div>
     <figure class="portrait" style="margin:0">
       <div class="frame">
         <span class="fallback" aria-hidden="true">OB</span>
-        <img src="photo.jpg" alt="Ognyan Baltadzhiev, Ship's Electrical Engineer, on board" width="400" height="400" onerror="this.remove()">
+        <img src="photo.jpg" alt="Ognyan Baltadzhiev, marine electrical engineer, on board" width="400" height="400" onerror="this.remove()">
       </div>
       <figcaption class="tag"><b>STCW III/6</b><span class="full">Electro-Technical Officer</span><span class="abbr">ETO</span></figcaption>
     </figure>
@@ -280,7 +320,7 @@
   <div class="wrap wrap-specs">
     <div class="specs">
       <div><b>2017</b><span>At sea since</span></div>
-      <div><b>4 ships</b><span>with Silversea since 2023</span></div>
+      <div><b>4 ships</b><span>Passenger ships since 2023</span></div>
       <div><b>&gt;&nbsp;1000&nbsp;V</b><span>High-voltage certified</span></div>
       <div><b>W31DF</b><span>Dual-fuel diesel-electric</span></div>
     </div>
@@ -291,65 +331,83 @@
   <div class="wrap split">
     <div class="label">
       <p class="num">01 / About</p>
-      <h2>Engineer on board, focused on power and propulsion</h2>
+      <h2>Power, propulsion, and the information behind them</h2>
     </div>
     <div class="about-text">
-      <p>I'm a Ship's Electrical Engineer with a Certificate of Competency as Electro-Technical Officer (STCW III/6). Since 2023 I've served as 1st Electrical Engineer with Silversea Cruises: on the expedition ship Silver Endeavour (Azipod, ABB 800xA), the dual-fuel Silver Ray (Wärtsilä 31DF, VEM propulsion motors, Valmet DNA), Silver Whisper and Silver Dawn.</p>
-      <p>Before cruise ships I sailed as Electrical Officer on bulk carriers (Wärtsilä Sulzer RT-flex and MAN B&amp;W ME-B main engines) and on the 70,000 GT diesel-electric cruise ship Ambience.</p>
-      <p>My work covers power generation and LV/HV distribution, diesel-electric propulsion, automation and alarm systems, troubleshooting, and planned maintenance.</p>
-      <p>I follow where ship power systems are going. During my Master's at TU Varna I studied onboard DC grids in depth: ABB's Onboard DC Grid, solid-state DC breakers, and the efficiency gains for variable-speed operation.</p>
-      <p>In my own time I build tools that turn a ship's drawings, manuals and alarm lists into an indexed, searchable library. Every result points back to the original drawing and page, the originals are never changed, and the tools work offline. The aim is simple: find the right sensor, setpoint or circuit in minutes during a real alarm, using modern search, including AI-assisted search, while the engineer and the original documents stay in charge.</p>
+      <p>Electrical engineering for ships, from the generator terminals to the propeller, and from the alarm on the screen to the drawing that explains it.</p>
+      <p><strong>At sea since 2017.</strong> Since 2023, senior electrical engineering on cruise and expedition ships: diesel-electric and dual-fuel power plants (Wärtsilä 31DF and 38), Azipod and conventional electric propulsion, ABB 800xA and Valmet DNA automation.</p>
+      <p><strong>Before that:</strong> bulk carriers with Wärtsilä Sulzer RT-flex and MAN B&amp;W ME-B main engines, and a 70,000 GT diesel-electric cruise ship.</p>
+      <p><strong>Day to day:</strong> LV/HV generation and distribution, propulsion drives, alarm and monitoring systems, fault-finding, and planned maintenance.</p>
+      <p><strong>Looking ahead:</strong> onboard DC grids, solid-state DC protection and efficient variable-speed operation, the subject of Master's work at TU Varna.</p>
+      <p><strong>On the side:</strong> tools that turn thousands of drawings, manuals and alarm lists into an indexed, offline library. Every answer points back to the original drawing and page. AI-assisted search is part of it; the engineer and the original documents stay in charge.</p>
     </div>
   </div>
 </section>
 
-<section id="experience" class="tint">
+<section id="approach" class="tint">
   <div class="wrap split">
     <div class="label">
-      <p class="num">02 / Experience</p>
+      <p class="num">02 / Approach</p>
+      <h2>Four working rules</h2>
+      <p class="lead">Learned in engine rooms, applied everywhere else.</p>
+    </div>
+    <div class="principles">
+      <div class="principle"><h3>Know the source of every number</h3><p>A setpoint in the manual and the value set in the automation system don't always agree. The one that counts is the one actually set, and a good report says which is which.</p></div>
+      <div class="principle"><h3>Find it in minutes, not hours</h3><p>During an alarm, every minute spent searching drawings is a minute the bridge waits. Preparation before the alarm is part of the job.</p></div>
+      <div class="principle"><h3>The original stays in charge</h3><p>Tools index, search and point. The drawing, the maker's manual and the engineer on watch decide.</p></div>
+      <div class="principle"><h3>Standardise for the team on board</h3><p>Fewer engineers and more ratings in the engine room means clear routines matter more than individual heroics.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap split">
+    <div class="label">
+      <p class="num">03 / Experience</p>
       <h2>Sea service</h2>
-      <p class="lead">Cruise, expedition and bulk carrier service since 2017. Exact contract dates are listed in my CV, available on request.</p>
+      <p class="lead">Cruise, expedition and bulk carrier service since 2017. A full CV with dates, ships and references is available on request.</p>
     </div>
     <div class="timeline">
       <div class="job">
         <div class="job-head">
-          <h3>Silversea Cruises &mdash; 1st Electrical Engineer</h3>
+          <h3>Cruise and expedition ships &mdash; senior electrical engineering</h3>
           <span class="dates">2023 &ndash; present</span>
         </div>
-        <p class="sub">Company rank: 1st Electrician</p>
+        <p class="sub">Four passenger ships, 20,000&ndash;55,000 GT, diesel-electric and dual-fuel</p>
         <div class="ships">
-          <article class="ship"><h4>Silver Dawn <span class="yr">2026</span></h4><p class="imo">IMO 9857937</p>
-            <dl><dt>Type</dt><dd>Cruise, 40,855 GT</dd><dt>Plant</dt><dd>Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</dd></dl></article>
-          <article class="ship"><h4>Silver Ray <span class="yr">2025</span></h4><p class="imo">IMO 9886225</p>
-            <dl><dt>Type</dt><dd>Cruise, 55,051 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</dd></dl></article>
-          <article class="ship"><h4>Silver Whisper <span class="yr">2024</span></h4><p class="imo">IMO 9192179</p>
-            <dl><dt>Type</dt><dd>Cruise, 28,258 GT</dd><dt>Plant</dt><dd>Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</dd></dl></article>
-          <article class="ship"><h4>Silver Endeavour <span class="yr">2023 &ndash; 2024</span></h4><p class="imo">IMO 9821873</p>
-            <dl><dt>Type</dt><dd>Expedition, 20,449 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</dd></dl></article>
+          <article class="ship"><h4>Cruise ship <span class="yr">2026</span></h4><p class="imo">Diesel-electric</p>
+            <dl><dt>Size</dt><dd>40,855 GT</dd><dt>Plant</dt><dd>Wärtsilä W9L38, 4 &times; 6.5 MW; VEM propulsion motors 2 &times; 8.5 MW</dd></dl></article>
+          <article class="ship"><h4>Cruise ship <span class="yr">2025</span></h4><p class="imo">Dual-fuel, LNG</p>
+            <dl><dt>Size</dt><dd>55,051 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; W16V31DF dual-fuel (2 &times; 8.4 + 2 &times; 4.2 MW); VEM propulsion motors 2 &times; 9.5 MW; Valmet DNA</dd></dl></article>
+          <article class="ship"><h4>Cruise ship <span class="yr">2024</span></h4><p class="imo">Diesel, controllable-pitch propellers</p>
+            <dl><dt>Size</dt><dd>28,258 GT</dd><dt>Plant</dt><dd>Wärtsilä 2 &times; 7.8 MW; controllable-pitch propellers</dd></dl></article>
+          <article class="ship"><h4>Expedition ship <span class="yr">2023 &ndash; 2024</span></h4><p class="imo">Diesel-electric, podded</p>
+            <dl><dt>Size</dt><dd>20,449 GT</dd><dt>Plant</dt><dd>Wärtsilä 4 &times; 3.6 MW; ABB Azipod 2 &times; 5.0 MW; ABB 800xA</dd></dl></article>
         </div>
       </div>
 
       <div class="job">
         <div class="job-head">
-          <h3>Ambassador Cruises &mdash; Ambience</h3>
+          <h3>Cruise ship &mdash; electrical and electronics</h3>
           <span class="dates">2022 &ndash; 2023</span>
         </div>
-        <p class="sub">1st Electrical Officer (Engine), then Electronics Engineer &middot; IMO 8521232 &middot; 70,000 GT cruise ship</p>
+        <p class="sub">70,000 GT diesel-electric cruise ship</p>
         <p>Diesel-electric plant: MAN 4 &times; 9.7 MW; Alstom propulsion motors 2 &times; 12 MW.</p>
       </div>
 
       <div class="job">
         <div class="job-head">
-          <h3>Bulk carriers &mdash; Electrical Officer / Senior ETO</h3>
+          <h3>Bulk carriers &mdash; electrical engineering</h3>
           <span class="dates">2020 &ndash; 2022</span>
         </div>
+        <p class="sub">Three bulk carriers, 39,000&ndash;62,000 DWT</p>
         <div class="ships">
-          <article class="ship"><h4>Nordsun</h4><p class="imo">IMO 9705158 &middot; 61,559 DWT</p>
-            <dl><dt>Company</dt><dd>Reederei Nord</dd><dt>Engine</dt><dd>MAN B&amp;W S50ME-B9.3, 8.13 MW</dd><dt>Rank</dt><dd>Senior ETO</dd></dl></article>
-          <article class="ship"><h4>Warmia</h4><p class="imo">IMO 9285146 &middot; 38,981 DWT</p>
-            <dl><dt>Company</dt><dd>Polsteam (PŻM)</dd><dt>Engine</dt><dd>Wärtsilä Sulzer, 7.88 MW</dd><dt>Rank</dt><dd>Electrical Officer</dd></dl></article>
-          <article class="ship"><h4>Diamond Sea</h4><p class="imo">IMO 9468152 &middot; 55,437 DWT</p>
-            <dl><dt>Company</dt><dd>IHB Shipping</dd><dt>Engine</dt><dd>Wärtsilä Sulzer RT-flex, 8.89 MW</dd><dt>Rank</dt><dd>Electrical Officer (two contracts)</dd></dl></article>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2022</span></h4><p class="imo">61,559 DWT</p>
+            <dl><dt>Engine</dt><dd>MAN B&amp;W S50ME-B9.3, 8.13 MW</dd></dl></article>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2021 &ndash; 2022</span></h4><p class="imo">38,981 DWT</p>
+            <dl><dt>Engine</dt><dd>Wärtsilä Sulzer, 7.88 MW</dd></dl></article>
+          <article class="ship"><h4>Bulk carrier <span class="yr">2020 &ndash; 2021</span></h4><p class="imo">55,437 DWT</p>
+            <dl><dt>Engine</dt><dd>Wärtsilä Sulzer RT-flex, 8.89 MW</dd></dl></article>
         </div>
       </div>
 
@@ -358,18 +416,18 @@
           <h3>Earlier service</h3>
           <span class="dates">2017 &ndash; 2019</span>
         </div>
-        <p class="sub" style="margin-bottom:0">Assistant Electrical Engineer on multipurpose, bulk and research vessels, plus passenger-ship dry-dock work.</p>
+        <p class="sub" style="margin-bottom:0">Electrical work on multipurpose, bulk and research vessels, plus passenger-ship dry-dock work.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="systems">
+<section id="systems" class="tint">
   <div class="wrap split">
     <div class="label">
-      <p class="num">03 / Systems</p>
+      <p class="num">04 / Systems</p>
       <h2>Equipment and areas of work</h2>
-      <p class="lead">Makers and systems I have worked with on board or studied in depth.</p>
+      <p class="lead">Makers and systems worked with on board or studied in depth.</p>
     </div>
     <div class="grid3">
       <div class="card sys"><h3><i>EN</i>Engines</h3><ul class="chips"><li>Wärtsilä 31DF (dual-fuel)</li><li>Wärtsilä 38</li><li>Wärtsilä Sulzer RT-flex</li><li>MAN B&amp;W ME-B</li><li>MAN</li></ul></div>
@@ -382,12 +440,12 @@
   </div>
 </section>
 
-<section id="projects" class="tint">
+<section id="projects">
   <div class="wrap split">
     <div class="label">
-      <p class="num">04 / Projects</p>
+      <p class="num">05 / Projects</p>
       <h2>Engineering and study projects</h2>
-      <p class="lead">Design and research work from TU Varna, and an ongoing personal project.</p>
+      <p class="lead">Design and research work from TU Varna, and one ongoing personal project.</p>
     </div>
     <div class="grid2">
       <div class="card"><p class="ctx">Master's, TU Varna</p><h3>Onboard DC grid case study: ABB Onboard DC Grid on Dina Star</h3><p>DC versus AC distribution on a DP offshore supply vessel: solid-state DC breakers, cooling, fuel savings at variable speed, and class guidance (DNV, Korean Register).</p></div>
@@ -400,11 +458,12 @@
   </div>
 </section>
 
-<section id="education">
+<section id="education" class="tint">
   <div class="wrap split">
     <div class="label">
-      <p class="num">05 / Education</p>
+      <p class="num">06 / Education</p>
       <h2>Technical University of Varna</h2>
+      <p class="lead">Qualification: Ship's Electrical Engineer.</p>
     </div>
     <ul class="rows two">
       <li><strong>Master's degree, Electrical Equipment of Ships</strong><small>All coursework and exams completed; diploma project in progress. Course essay: onboard DC grids for ships.</small></li>
@@ -413,12 +472,12 @@
   </div>
 </section>
 
-<section id="certificates" class="tint">
+<section id="certificates">
   <div class="wrap split">
     <div class="label">
-      <p class="num">06 / Certificates</p>
+      <p class="num">07 / Certificates</p>
       <h2>Competency and training</h2>
-      <p class="lead">Certificate numbers and copies are provided to employers on request.</p>
+      <p class="lead">Certificate numbers, copies and references are available on request.</p>
     </div>
     <ul class="rows two">
       <li><strong>Certificate of Competency: Electro-Technical Officer, STCW III/6</strong><small>Bulgarian Maritime Administration; flag endorsements: Bahamas, Portugal</small></li>
@@ -434,13 +493,18 @@
 <section id="contact">
   <div class="wrap">
     <div class="contact-card">
-      <p class="num">07 / Contact</p>
+      <p class="num">08 / Contact</p>
       <h2>Get in touch</h2>
-      <p>For crewing, technical questions or collaboration, email me, or message me on WhatsApp or LinkedIn. While at sea I reply when connectivity allows.</p>
+      <p>Open to conversations about ship power and propulsion, electrical systems, and better ways to handle technical documentation. Replies from sea come when connectivity allows.</p>
+      <div class="recruit">
+        <span><strong>For crewing and recruitment</strong></span>
+        <ul><li>Full CV (text and PDF)</li><li>Certificate copies</li><li>References</li></ul>
+        <a href="mailto:contact@ognyanbaltadzhiev.com?subject=CV%20request">Available on request &rarr;</a>
+      </div>
       <div class="actions">
         <a class="btn primary" href="mailto:contact@ognyanbaltadzhiev.com"><span class="long">contact@ognyanbaltadzhiev.com</span><span class="short">Email</span></a>
         <a class="btn wa" href="https://wa.me/qr/CD4SWMSLY7HCB1" target="_blank" rel="noopener nofollow"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 1a4.5 4.5 0 0 1-2.4-2.4l1-1-1-2Z" fill="currentColor"/></svg>WhatsApp</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev" rel="me noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev/" rel="me noopener">LinkedIn</a>
       </div>
       <p class="addr">contact@<wbr>ognyanbaltadzhiev.com</p>
     </div>
@@ -454,6 +518,12 @@
     <div class="alt">Also spelled: Ognian Baltadzhiev, Ognyan Baltadjiev, Ognyan Baltadziev &middot; Огнян Балтаджиев</div>
   </div>
 </footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+(function(){var h=document.querySelector('header.top'),b=h.querySelector('.menu-btn');
+b.addEventListener('click',function(){var o=h.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+h.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){h.classList.remove('open');b.setAttribute('aria-expanded','false')}});})();
+</script>
 </body>
 </html>
