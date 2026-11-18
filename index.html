@@ -35,7 +35,7 @@
     "@type": "Occupation",
     "name": "Marine Electrical Engineer",
     "occupationalCategory": "Electrical engineering, ship power and propulsion systems",
-    "skills": "Diesel-electric and dual-fuel power plants, electric propulsion, HV/LV distribution, integrated automation, onboard DC grids, technical documentation systems"
+    "skills": "Diesel-electric and dual-fuel power plants, electric propulsion, HV/LV distribution, integrated automation, onboard DC grids, technical documentation systems, LLM and RAG applied to ship technical documentation"
   },
   "homeLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Varna", "addressCountry": "BG" } },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Technical University of Varna", "sameAs": "https://www.tu-varna.bg/" },
@@ -53,7 +53,7 @@
       "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Technical University of Varna" }
     }
   ],
-  "knowsAbout": ["Marine electrical engineering", "Electrical systems architecture", "Diesel-electric propulsion", "Dual-fuel engines", "Wärtsilä 31DF", "ABB Azipod", "ABB 800xA", "Valmet DNA", "High-voltage distribution", "Power management systems", "Onboard DC grids", "IGF Code", "Ship technical documentation"],
+  "knowsAbout": ["Marine electrical engineering", "Electrical systems architecture", "Diesel-electric propulsion", "Dual-fuel engines", "Wärtsilä 31DF", "ABB Azipod", "ABB 800xA", "Valmet DNA", "High-voltage distribution", "Power management systems", "Onboard DC grids", "IGF Code", "Ship technical documentation", "Applied AI in marine engineering", "Large language models (LLM)", "Retrieval-augmented generation (RAG)", "Fault tracing across technical documentation"],
   "knowsLanguage": ["en", "bg"],
   "image": "https://ognyanbaltadzhiev.com/photo.jpg",
   "sameAs": ["https://www.linkedin.com/in/ognyan-baltadzhiev/"]
@@ -220,6 +220,10 @@
   .card.wide .intro p{margin-bottom:12px}
   .card.wide .src{font-size:12.5px;color:var(--muted);margin:0}
   .card.wide .src a{color:var(--sea-text)}
+  .card.wide .story p{margin:0 0 12px}
+  .card.wide .story .close{font-weight:600;margin:0}
+  .card.wide .scenes{line-height:1.7}
+  .card.full{grid-column:1/-1}
   .gains{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:g}
   .gains li{position:relative;padding:14px 16px 14px 54px;background:var(--bg);border:1px solid var(--line);border-radius:14px;font-size:14.5px;color:var(--text)}
   .gains li::before{counter-increment:g;content:counter(g);position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--sea-soft);color:var(--sea-text);font-family:var(--mono);font-size:13px;font-weight:600}
@@ -312,7 +316,7 @@
       <h1>Ognyan <span>Baltadzhiev</span></h1>
       <p class="role">Electrical Engineering &middot; Systems Architecture</p>
       <p class="meta">Varna, Bulgaria &middot; usually somewhere at sea</p>
-      <p class="bio">Specializing in ship power plants: diesel-electric and dual-fuel generation, electric propulsion and integrated automation. Interested in onboard DC grids, and in making a ship's technical documentation fast to search and safe to trust.</p>
+      <p class="bio">Specializing in ship power plants: diesel-electric and dual-fuel generation, electric propulsion and integrated automation. Interested in onboard DC grids, and in engineering tools that turn a ship's complete documentation into working knowledge.</p>
       <div class="actions">
         <a class="btn primary" href="#contact">Get in touch</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/ognyan-baltadzhiev/" rel="me noopener">LinkedIn profile</a>
@@ -457,8 +461,19 @@
       <p class="lead">Newest first. Design and research work from TU Varna, and one ongoing personal project.</p>
     </div>
     <div class="grid2">
-      <div class="card"><p class="ctx">Personal &middot; 2026 &ndash; ongoing</p><h3>Digital toolkit for ship technical documentation</h3><p>Python tools that register, OCR, split, name and index thousands of drawings and manuals into a traceable library. Every search result cites the original drawing and page.</p></div>
-      <div class="card"><p class="ctx">Master's, TU Varna &middot; 2025</p><h3>Photovoltaic system topology, wiring and sizing</h3><p>PV topologies, electrical scheme selection and structural sizing.</p></div>
+      <div class="card wide story-card">
+        <div class="intro">
+          <p class="ctx">Personal &middot; 2026 &ndash; ongoing &middot; In development</p>
+          <h3>The engine room that answers back</h3>
+          <p class="scenes">Hundreds of systems, all connected.<br>A common alarm on a main engine, with more than a dozen possible causes behind a single indication. It comes and goes. While it's active, one of the engine's safety functions may be out of service.<br>A routine fault, landing on an engineer who joined the ship last week.<br>A new build that nobody knows yet, and that has to run safely from the first day.</p>
+        </div>
+        <div class="story">
+          <p>Ships are becoming more integrated, and crews leaner. Every system is documented in detail, but the answer is rarely on one page. It lies in the links between a manual, a wiring diagram and an alarm list, and finding those links can take days.</p>
+          <p>Experience, engineering intuition and layers of safety still carry every watch. This project adds one more layer: an engineering tool that comprehends a ship's complete documentation, links it across systems and traces a fault from its symptom to its likely causes.</p>
+          <p class="close">Every finding points back to the original page.<br>The engineer, the manuals and the drawings stay in charge.</p>
+        </div>
+      </div>
+      <div class="card full"><p class="ctx">Master's, TU Varna &middot; 2025</p><h3>Photovoltaic system topology, wiring and sizing</h3><p>PV topologies, electrical scheme selection and structural sizing.</p></div>
       <div class="card wide">
         <div class="intro">
           <p class="ctx">Master's, TU Varna &middot; 2023</p>
