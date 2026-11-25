@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A bow thruster bearing alarm on a ship you don't know: the first 15 minutes – Ognyan Baltadzhiev</title>
+<meta name="description" content="Bow thruster bearing alarm during manoeuvring on an unfamiliar ship: what to tell the bridge, how to read the trend, setpoints, PT100 checks and the log.">
+<link rel="canonical" href="https://ognyanbaltadzhiev.com/articles/bow-thruster-bearing-alarm/">
+<meta name="author" content="Ognyan Baltadzhiev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A bow thruster bearing alarm on a ship you don't know: the first 15 minutes">
+<meta property="og:description" content="Most of the difficulty isn't the fault. It's finding the right information fast enough.">
+<meta property="og:image" content="https://ognyanbaltadzhiev.com/photo.jpg">
+<meta property="og:url" content="https://ognyanbaltadzhiev.com/articles/bow-thruster-bearing-alarm/">
+<meta property="article:published_time" content="2026-11-25">
+<meta property="article:author" content="https://ognyanbaltadzhiev.com/">
+<meta name="theme-color" content="#e3eef6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a44'/%3E%3Cpath d='M46 20 A17 17 0 1 0 49 32' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M39 18.5 L46.5 19.5 L47.5 12' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 19 L25 34 H32 L29 45 L39 29 H32 Z' fill='%23e0a35a'/%3E%3C/svg%3E">
+<link rel="preload" href="../../fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "A bow thruster bearing alarm on a ship you don't know: the first 15 minutes",
+  "description": "Most of the difficulty isn't the fault. It's finding the right information fast enough.",
+  "datePublished": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "inLanguage": "en",
+  "url": "https://ognyanbaltadzhiev.com/articles/bow-thruster-bearing-alarm/",
+  "mainEntityOfPage": "https://ognyanbaltadzhiev.com/articles/bow-thruster-bearing-alarm/",
+  "image": "https://ognyanbaltadzhiev.com/photo.jpg",
+  "author": { "@type": "Person", "@id": "https://ognyanbaltadzhiev.com/#person", "name": "Ognyan Baltadzhiev", "url": "https://ognyanbaltadzhiev.com/" },
+  "about": ["Bow thruster", "Bearing temperature alarm", "PT100", "Alarm and monitoring systems", "Marine electrical engineering"]
+}
+</script>
+
+<style>
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(../../fonts/inter-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(../../fonts/inter-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-display:swap;font-weight:300 700;src:url(../../fonts/space-grotesk-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:100 800;src:url(../../fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2")}
+
+  :root{
+    --bg:#f4f7fa; --surface:#ffffff; --ink:#0f2a44; --text:#28394b; --muted:#5f6e7d;
+    --line:#e1e8ef; --sea:#2f6f98; --sea-soft:#dcebf5; --sky:#e3eef6;
+    --copper:#c27c33; --copper-text:#8f5418; --copper-soft:#f6e7d4; --sea-text:#275f84;
+    --display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --sans:"Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--sea);text-underline-offset:3px}
+  a:hover{color:var(--copper-text)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  @media (max-width:640px){ .wrap{padding:0 20px} body{font-size:16.5px} }
+
+  header.top{position:sticky;top:0;z-index:20;background:rgba(227,238,246,.72);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand svg{flex:none}
+  nav{display:flex;gap:2px}
+  nav a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .2s,color .2s}
+  nav a:hover{background:rgba(255,255,255,.75);color:var(--ink)}
+  @media (max-width:520px){ .brand .nm{display:none} }
+
+  .hero{position:relative;margin-top:-66px;padding:124px 0 36px;overflow:hidden;
+    background:radial-gradient(900px 520px at 85% 10%, rgba(75,143,189,.18), transparent 65%),
+      linear-gradient(180deg, var(--sky) 0%, var(--sky) 45%, var(--bg) 100%)}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(47,111,152,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,111,152,.07) 1px,transparent 1px);
+    background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 95%);mask-image:linear-gradient(180deg,#000 0%,transparent 95%)}
+  .col{position:relative;max-width:740px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--copper-text);letter-spacing:.04em;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 14px}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.6vw,48px);line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin:0 0 16px}
+  .dek{font-family:var(--display);font-size:clamp(19px,2vw,22px);line-height:1.45;color:var(--sea-text);font-weight:500;margin:0}
+
+  article.body{padding:20px 0 40px}
+  article.body p{margin:0 0 18px}
+  article.body h2{font-family:var(--display);font-weight:600;color:var(--ink);font-size:24px;line-height:1.25;letter-spacing:-.02em;margin:44px 0 12px;display:flex;gap:12px;align-items:baseline}
+  article.body h2 .n{flex:none;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--copper-text);background:var(--copper-soft);border-radius:8px;padding:3px 8px;position:relative;top:-3px}
+  article.body ul{margin:0 0 20px;padding-left:22px}
+  article.body li{margin:0 0 8px}
+  .call{margin:28px 0;padding:18px 22px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--copper);border-radius:14px;font-family:var(--mono);font-size:15px;color:var(--ink)}
+  article.body .call p{margin:0}
+  .card{margin:22px 0 26px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .card p.t{font-family:var(--display);font-weight:600;color:var(--ink);margin:0 0 8px}
+  .card ul{margin:0}
+  hr{border:0;height:1px;background:var(--line);margin:44px 0 0}
+  .end{font-size:15px;color:var(--muted);margin:24px 0 0}
+  .back{display:inline-flex;margin-top:28px;padding:11px 20px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-size:15px;font-weight:600}
+  .back:hover{background:var(--sea);color:#fff}
+  footer{padding:36px 0 48px;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Ognyan Baltadzhiev – home"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M46 20 A17 17 0 1 0 49 32" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round"/><path d="M39 18.5 L46.5 19.5 L47.5 12" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 19 L25 34 H32 L29 45 L39 29 H32 Z" fill="#e0a35a"/></svg><span class="nm">Ognyan Baltadzhiev</span></a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/#articles">Articles</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div class="col">
+      <p class="kicker"><span>Article &middot;</span><time datetime="2026-11-25">Published 25 November 2026</time><span>&middot; ~6 min read</span></p>
+      <h1>A bow thruster bearing alarm on a ship you don't know: the first 15 minutes</h1>
+      <p class="dek">Most of the difficulty isn't the fault. It's finding the right information fast enough.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<article class="body col">
+  <p>A new joiner. The handover is done, the engine room walked once, and the documentation is a folder with six thousand files nobody has opened yet. The ship is manoeuvring into port. The control room calls:</p>
+
+  <div class="call"><p>"High temperature alarm, bow thruster 1, motor DE bearing."</p></div>
+
+  <p>The next few minutes need answers that nobody has from memory on a new ship. Where is the bow thruster room, and how do you get there? What kind of sensor is it, and where is it wired? At what temperature does the alarm come, and at what temperature does the thruster stop? Can that stop be overridden, and who decides?</p>
+
+  <p>The bridge needs that thruster. If it trips halfway through the manoeuvre, the pilot and the master lose a tool they were counting on. So the first job isn't the repair. It's giving the bridge a reliable answer quickly.</p>
+
+  <p>One way to work through it, step by step.</p>
+
+  <h2><span class="n">01</span>Tell the bridge what this alarm can turn into (first minute)</h2>
+  <p>Before anything else, find out whether this alarm is <strong>alarm only</strong> or whether it leads to a <strong>load reduction or shutdown</strong>, and tell the bridge. "Alarm on BT1 DE bearing, checking it now. If it rises further, the thruster may trip" lets them plan the manoeuvre with that in mind. Better to say that early than to explain a trip afterwards.</p>
+  <p>If the manoeuvre allows it, ask for reduced thruster load. A bearing that's heating because of load will show it on the trend within minutes, and that itself is diagnostic information.</p>
+  <p>Overriding a shutdown isn't the electrician's decision alone. If the system has an override that covers this protection, using it is the master's and chief engineer's call, made knowing it can damage the motor.</p>
+
+  <h2><span class="n">02</span>Read the trend, not just the number</h2>
+  <p>Open the trend on the alarm and monitoring system and look at the shape:</p>
+  <ul>
+    <li><strong>Steady rise that follows thruster load</strong>, with the other bearing and the windings also warmer than usual: probably a real temperature rise.</li>
+    <li><strong>Step jump</strong> to a very high value, or to the top of the sensor range, while the NDE bearing and the windings stay normal: think sensor or wiring first. A PT100 with a broken wire usually reads as maximum or "sensor fault". A short reads low.</li>
+    <li><strong>Value flickering</strong> between normal and high: loose terminal, damaged cable, or a connector that has taken water.</li>
+  </ul>
+  <p>Comparing the DE bearing with the NDE bearing and the winding temperatures on the same motor is the fastest way to separate a real problem from a measurement problem. It takes thirty seconds and needs no drawings.</p>
+
+  <h2><span class="n">03</span>Find the limits, and know where they came from</h2>
+  <p>Two numbers matter: the alarm setpoint and the shutdown setpoint. On a new ship they can be in several places:</p>
+  <ul>
+    <li>the alarm list or parameter list of the automation system (what is actually set),</li>
+    <li>commissioning or sea-trial records,</li>
+    <li>the motor maker's data sheet,</li>
+    <li>the thruster maker's manual.</li>
+  </ul>
+  <p><strong>These don't always agree.</strong> During an alarm, trust the value actually set in the system, and say where the number comes from when reporting it: "the IAS shuts down at X; the manual says Y" is far more useful to the chief than one number with no source.</p>
+  <p>Also find out <strong>what</strong> acts on the shutdown: the automation system, the thruster's own control system, or the motor protection relay. That decides where to look if it does trip, and whether any override reaches it at all.</p>
+
+  <h2><span class="n">04</span>Go and look</h2>
+  <p>Find the room on the general arrangement or the fire and safety plan: deck, frame, and access route. Bow thruster rooms are often low and forward, sometimes through a tank top or a long passage, and on a new ship it's easy to lose minutes on the way.</p>
+  <p>In the room:</p>
+  <ul>
+    <li>Listen and feel for noise and vibration from the bearing area, compared with the other thruster if there is one.</li>
+    <li>Check the bearing housing with an infrared thermometer. The housing reads lower than the bearing itself, so use it as a sanity check against the sensor, not as a measurement.</li>
+    <li>Look for grease leaking from the bearing seals.</li>
+    <li>Check that the room ventilation is running and the room isn't unusually hot.</li>
+  </ul>
+  <p>Then check the maintenance history in the planned maintenance system. <strong>A bearing that was regreased recently and is now running hot is a common pattern.</strong> Too much grease raises the temperature until the excess has worked out. That doesn't mean ignoring it, but it changes how worried to be.</p>
+
+  <h2><span class="n">05</span>If the sensor is the suspect, measure it</h2>
+  <p>Find the sensor's input in the automation system's I/O list: cabinet, card and channel. Measuring at the I/O cabinet side keeps you away from the running motor.</p>
+  <p>A PT100 is about <strong>100 Ω at 0 °C</strong> and rises by about <strong>0.385 Ω per °C</strong>, so roughly 115 Ω at 40 °C and 138.5 Ω at 100 °C. A reading that matches the housing temperature points to a real rise. Open circuit, a very low resistance, or a value that changes when the cable is moved points to the sensor or the wiring. Check whether it's 2-, 3- or 4-wire before interpreting the number, and don't disconnect anything while the thruster is in use without agreeing it with the engine control room.</p>
+
+  <h2><span class="n">06</span>Close it properly</h2>
+  <p>Once the manoeuvre is over, log the values and the trend, what was found, and what was done. Open a job in the maintenance system if follow-up is needed: a sensor replacement, a bearing inspection, a vibration measurement, or a check of the grease quantity at the next regreasing. The next engineer who gets this alarm will start from those notes.</p>
+
+  <h2>What this really shows</h2>
+  <p>None of these steps is advanced. Any experienced electrical engineer knows them. What takes the time on an unfamiliar ship is <strong>finding things</strong>: the room on the GA plan, the setpoint in the right document, the channel in the I/O list, the cable on the wiring diagram. During manoeuvring, those minutes matter.</p>
+  <p>So the most useful work on joining a ship happens before the alarm comes: one page for each critical consumer (thrusters, propulsion motors, steering, generators).</p>
+
+  <div class="card">
+    <p class="t">One page per critical consumer</p>
+    <ul>
+      <li>location and access route,</li>
+      <li>sensors and their type,</li>
+      <li>alarm and shutdown setpoints, <strong>with the source of each value</strong>,</li>
+      <li>I/O cabinet and channel, terminal box and cable,</li>
+      <li>what acts on the shutdown, and whether an override exists,</li>
+      <li>first actions from the maker's manual.</li>
+    </ul>
+  </div>
+
+  <p>Building those pages by hand from thousands of drawings and manuals is slow. It is also the problem behind the ongoing project <a href="/#projects">The engine room that answers back</a>: an engineering tool that links a ship's documentation across systems, where every finding points back to the original drawing and page. But the tool is secondary. The page is what matters, and it can be started on the first day on board.</p>
+
+  <hr>
+  <p class="end">Other ways of getting up to speed on a ship's documentation are welcome: <a href="mailto:contact@ognyanbaltadzhiev.com?subject=Bow%20thruster%20article">contact@ognyanbaltadzhiev.com</a> or <a href="https://www.linkedin.com/in/ognyan-baltadzhiev/" rel="me noopener">LinkedIn</a>.</p>
+  <a class="back" href="/">&larr; Ognyan Baltadzhiev, home</a>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2026 Ognyan Baltadzhiev &middot; Varna, Bulgaria</div>
+    <div><time datetime="2026-11-25">Published 25 November 2026</time></div>
+  </div>
+</footer>
+</body>
+</html>
