@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>48 pulses from 12-pulse drives: where the harmonics cancel – Ognyan Baltadzhiev</title>
+<meta name="description" content="How four phase-shifted transformers make 48-pulse rectification on a diesel-electric ship, what it buys, and when the harmonics come back.">
+<link rel="canonical" href="https://ognyanbaltadzhiev.com/articles/48-pulse-rectification/">
+<meta name="author" content="Ognyan Baltadzhiev">
+<meta property="og:type" content="article">
+<meta property="og:title" content="48 pulses from 12-pulse drives: where the harmonics cancel">
+<meta property="og:description" content="Every propulsion converter sees 12 pulses. The 11 kV bus sees 48, but only while three conditions hold.">
+<meta property="og:image" content="https://ognyanbaltadzhiev.com/photo.jpg">
+<meta property="og:url" content="https://ognyanbaltadzhiev.com/articles/48-pulse-rectification/">
+<meta property="article:published_time" content="2027-01-25">
+<meta property="article:author" content="https://ognyanbaltadzhiev.com/">
+<meta name="theme-color" content="#e3eef6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f2a44'/%3E%3Cpath d='M46 20 A17 17 0 1 0 49 32' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M39 18.5 L46.5 19.5 L47.5 12' fill='none' stroke='%23e0a35a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M34 19 L25 34 H32 L29 45 L39 29 H32 Z' fill='%23e0a35a'/%3E%3C/svg%3E">
+<link rel="preload" href="../../fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "48 pulses from 12-pulse drives: where the harmonics cancel",
+  "description": "Every propulsion converter sees 12 pulses. The 11 kV bus sees 48, but only while three conditions hold.",
+  "datePublished": "2027-01-25",
+  "dateModified": "2027-01-25",
+  "inLanguage": "en",
+  "url": "https://ognyanbaltadzhiev.com/articles/48-pulse-rectification/",
+  "mainEntityOfPage": "https://ognyanbaltadzhiev.com/articles/48-pulse-rectification/",
+  "image": "https://ognyanbaltadzhiev.com/photo.jpg",
+  "author": { "@type": "Person", "@id": "https://ognyanbaltadzhiev.com/#person", "name": "Ognyan Baltadzhiev", "url": "https://ognyanbaltadzhiev.com/" },
+  "about": ["Multipulse rectifier", "Phase-shifting transformer", "Harmonic distortion", "Diesel-electric propulsion", "Power quality", "Marine electrical engineering"]
+}
+</script>
+
+<style>
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(../../fonts/inter-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Inter";font-style:normal;font-display:swap;font-weight:100 900;src:url(../../fonts/inter-latin-ext-wght-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-display:swap;font-weight:300 700;src:url(../../fonts/space-grotesk-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"JetBrains Mono";font-style:normal;font-display:swap;font-weight:100 800;src:url(../../fonts/jetbrains-mono-latin-wght-normal.woff2) format("woff2")}
+
+  :root{
+    --bg:#f4f7fa; --surface:#ffffff; --ink:#0f2a44; --text:#28394b; --muted:#5f6e7d;
+    --line:#e1e8ef; --sea:#2f6f98; --sea-soft:#dcebf5; --sky:#e3eef6;
+    --copper:#c27c33; --copper-text:#8f5418; --copper-soft:#f6e7d4; --sea-text:#275f84;
+    --display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
+    --sans:"Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono:"JetBrains Mono", ui-monospace, Consolas, "Courier New", monospace;
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:17px/1.75 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--sea);text-underline-offset:3px}
+  a:hover{color:var(--copper-text)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  @media (max-width:640px){ .wrap{padding:0 20px} body{font-size:16.5px} }
+
+  header.top{position:sticky;top:0;z-index:20;background:rgba(227,238,246,.72);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+  .brand svg{flex:none}
+  nav{display:flex;gap:2px}
+  nav a{font-size:14px;font-weight:500;color:var(--muted);text-decoration:none;padding:7px 12px;border-radius:999px;transition:background .2s,color .2s}
+  nav a:hover{background:rgba(255,255,255,.75);color:var(--ink)}
+  @media (max-width:520px){ .brand .nm{display:none} }
+
+  .hero{position:relative;margin-top:-66px;padding:124px 0 36px;overflow:hidden;
+    background:radial-gradient(900px 520px at 85% 10%, rgba(75,143,189,.18), transparent 65%),
+      linear-gradient(180deg, var(--sky) 0%, var(--sky) 45%, var(--bg) 100%)}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(47,111,152,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,111,152,.07) 1px,transparent 1px);
+    background-size:44px 44px;-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 95%);mask-image:linear-gradient(180deg,#000 0%,transparent 95%)}
+  .col{position:relative;max-width:740px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:13px;color:var(--copper-text);letter-spacing:.04em;margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 14px}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.6vw,48px);line-height:1.1;letter-spacing:-.03em;color:var(--ink);margin:0 0 16px}
+  .dek{font-family:var(--display);font-size:clamp(19px,2vw,22px);line-height:1.45;color:var(--sea-text);font-weight:500;margin:0}
+
+  article.body{padding:20px 0 40px}
+  article.body p{margin:0 0 18px}
+  article.body h2{font-family:var(--display);font-weight:600;color:var(--ink);font-size:24px;line-height:1.25;letter-spacing:-.02em;margin:44px 0 12px;display:flex;gap:12px;align-items:baseline}
+  article.body h2 .n{flex:none;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--copper-text);background:var(--copper-soft);border-radius:8px;padding:3px 8px;position:relative;top:-3px}
+  article.body ul,article.body ol{margin:0 0 20px;padding-left:22px}
+  article.body li{margin:0 0 8px}
+  .call{margin:28px 0;padding:18px 22px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--copper);border-radius:14px;font-family:var(--mono);font-size:15px;color:var(--ink)}
+  article.body .call p{margin:0}
+  .card{margin:22px 0 26px;padding:22px 24px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .card p.t{font-family:var(--display);font-weight:600;color:var(--ink);margin:0 0 8px}
+  .card ul{margin:0}
+  .tbl{margin:22px 0 26px;overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .tbl table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55;min-width:560px}
+  .tbl th,.tbl td{text-align:left;vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .tbl thead th{font-family:var(--display);font-weight:600;color:var(--ink);background:var(--sky)}
+  .tbl tbody th{font-weight:600;color:var(--ink);width:24%}
+  .tbl tr:last-child th,.tbl tr:last-child td{border-bottom:0}
+  .refs{font-size:14.5px;line-height:1.6}
+  .refs li{margin:0 0 6px}
+  hr{border:0;height:1px;background:var(--line);margin:44px 0 0}
+  .end{font-size:15px;color:var(--muted);margin:24px 0 0}
+  .back{display:inline-flex;margin-top:28px;padding:11px 20px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-size:15px;font-weight:600}
+  .back:hover{background:var(--sea);color:#fff}
+  footer{padding:36px 0 48px;font-size:13px;color:var(--muted)}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Ognyan Baltadzhiev – home"><svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0f2a44"/><path d="M46 20 A17 17 0 1 0 49 32" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round"/><path d="M39 18.5 L46.5 19.5 L47.5 12" fill="none" stroke="#e0a35a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 19 L25 34 H32 L29 45 L39 29 H32 Z" fill="#e0a35a"/></svg><span class="nm">Ognyan Baltadzhiev</span></a>
+    <nav aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/#articles">Articles</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div class="col">
+      <p class="kicker"><span>Article &middot;</span><time datetime="2027-01-25">Published 25 January 2027</time><span>&middot; ~8 min read</span></p>
+      <h1>48 pulses from 12-pulse drives: where the harmonics cancel</h1>
+      <p class="dek">Every propulsion converter sees 12 pulses. The 11 kV bus sees 48, but only while three conditions hold.</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<article class="body col">
+  <p>A class surveyor connects a power quality analyser to the main switchboard and measures the harmonic distortion. The result is under the limit, the report is signed, and the survey moves on.</p>
+
+  <p>On a diesel-electric cruise ship with two 9.50 MW propulsion drives fed from diode rectifiers, that result is not luck. There are no harmonic filter banks on board. The work is done by four propulsion transformers that look identical on the single-line diagram and differ only by a few degrees in their vector group.</p>
+
+  <p>How those few degrees cancel the harmonics, what the arrangement buys, and when it stops working.</p>
+
+  <h2><span class="n">01</span>The plant in one paragraph</h2>
+  <p>Each shaft has one permanent-magnet propulsion motor with two separate three-phase winding systems. Each winding system has its own converter: a 12-pulse diode front end, a DC link and an IGBT inverter. Each converter has its own transformer: 11 kV primary, two secondaries. In total there are four transformers, four converters and eight six-pulse diode bridges. One shaft is fed from the forward main switchboard, the other from the aft one, and a bus tie joins the two.</p>
+
+  <h2><span class="n">02</span>Six pulses, twelve pulses</h2>
+  <p>A six-pulse diode bridge draws a current that is roughly rectangular, not sinusoidal. Its harmonics follow a simple rule: orders 6k&nbsp;&plusmn;&nbsp;1 (the 5th, 7th, 11th, 13th and so on), each at roughly 1/h of the fundamental. The 5th alone is about 20&nbsp;%.</p>
+  <p>Now feed two bridges from two secondaries 30&deg; apart: one delta, one star. On the primary side, the 5th and 7th harmonics of the two bridges arrive in opposite phase and cancel. What is left starts at the 11th and 13th. That is a 12-pulse rectifier.</p>
+  <p>The general rule: <strong>N six-pulse bridges, spaced 60&deg;/N apart, give a 6N-pulse line current</strong>, and the lowest harmonics left are 6N&nbsp;&plusmn;&nbsp;1. Eight bridges, spaced 7.5&deg; apart, give 48 pulses, with the 47th and 49th as the lowest characteristic harmonics. At 60&nbsp;Hz that is 2,820 and 2,940&nbsp;Hz.</p>
+
+  <h2><span class="n">03</span>Three things that are easy to get wrong</h2>
+  <ul>
+    <li><strong>Each transformer gives six secondary phases, not twelve:</strong> two three-phase systems 30&deg; apart.</li>
+    <li><strong>The cancellation happens in the 11 kV line current, not in the DC link.</strong> Each bridge still draws its full six-pulse current. The harmonics only cancel where the currents add up: in the transformer primaries and on the bus.</li>
+    <li><strong>Each DC link only ever sees 12 pulses.</strong> Its ripple is set by its own two bridges. The 48 pulses exist only on the switchboard.</li>
+  </ul>
+
+  <h2><span class="n">04</span>Where the 7.5&deg; come from</h2>
+  <p>The two secondaries of each transformer (one delta, one star) give the 30&deg; step inside each converter. To interleave four converters, each transformer also has an extra shift on the primary side, made with an extended-delta winding. On one shaft the two primaries are shifted 15&deg; apart, which makes that shaft a 24-pulse load. The other shaft is shifted by a further 7.5&deg;, which fills the gaps.</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">Transformer</th><th scope="col">Primary shift</th><th scope="col">Delta secondary group</th><th scope="col">Star secondary group</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Shaft 1, transformer A</th><td>&minus;3.75&deg;</td><td>&minus;3.75&deg;</td><td>26.25&deg;</td></tr>
+        <tr><th scope="row">Shaft 1, transformer B</th><td>+11.25&deg;</td><td>11.25&deg;</td><td>41.25&deg;</td></tr>
+        <tr><th scope="row">Shaft 2, transformer A</th><td>+3.75&deg;</td><td>3.75&deg;</td><td>33.75&deg;</td></tr>
+        <tr><th scope="row">Shaft 2, transformer B</th><td>&minus;11.25&deg;</td><td>&minus;11.25&deg;</td><td>18.75&deg;</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Sorted, the eight bridge groups sit at &minus;11.25, &minus;3.75, 3.75, 11.25, 18.75, 26.25, 33.75 and 41.25&deg;: eight groups in even 7.5&deg; steps. Shaft 1 alone covers &minus;3.75, 11.25, 26.25 and 41.25&deg;, which is 15&deg; steps and 24 pulses. Shaft 2 sits exactly in between.</p>
+
+  <h2><span class="n">05</span>What it buys</h2>
+  <p>The table below is an idealised calculation (rectangular bridge currents, no commutation overlap). Real values are lower, but the steps between the rows are the point.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">Bridges cancelling together</th><th scope="col">Pulses</th><th scope="col">Lowest harmonics</th><th scope="col">Line current THD, idealised</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">One six-pulse bridge</th><td>6</td><td>5, 7</td><td>~31&nbsp;%</td></tr>
+        <tr><th scope="row">One converter</th><td>12</td><td>11, 13</td><td>~15&nbsp;%</td></tr>
+        <tr><th scope="row">One shaft, both converters</th><td>24</td><td>23, 25</td><td>~7&nbsp;%</td></tr>
+        <tr><th scope="row">Both shafts, bus tie closed</th><td>48</td><td>47, 49</td><td>~3.5&nbsp;%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul>
+    <li><strong>No filter banks.</strong> No tuned capacitors to maintain, no resonance to check every time the plant changes, no capacitive load on the generators at low power.</li>
+    <li><strong>Room under the class limit.</strong> IACS UR E24 limits voltage THD on ship distribution systems to 8&nbsp;% unless all equipment is designed for more. Some classification societies and navies work to 5&nbsp;%.</li>
+    <li><strong>Generators that tolerate it.</strong> Voltage distortion is harmonic current times source impedance, and a generator is a weak source. Its subtransient reactance is typically 12&ndash;20&nbsp;%, against 5&ndash;6&nbsp;% for a shore transformer. On a ship, the same harmonic current distorts the voltage two to four times more than ashore. Cancelling the current at source is the cheapest place to solve that.</li>
+  </ul>
+
+  <h2><span class="n">06</span>What it costs</h2>
+  <ul>
+    <li><strong>Four transformers that are not interchangeable.</strong> Same rating, same size, different primary shift. A spare or a rewound unit must be specified by vector group and phase shift, not by kVA alone.</li>
+    <li><strong>No regeneration.</strong> A diode bridge cannot feed power back to the network. Braking energy from the propeller goes into a braking chopper and resistor on each converter.</li>
+    <li><strong>Inrush handling that depends on phase.</strong> To limit the inrush current, each transformer is pre-magnetised from the low-voltage side before its 11 kV breaker closes. The correct secondary must be energised, or the induced primary voltage will not line up with the bus.</li>
+    <li><strong>48 pulses only in one operating condition:</strong> both motors running, all four converters in service and roughly equally loaded, and the bus tie closed.</li>
+  </ul>
+
+  <h2><span class="n">07</span>When the conditions are not met</h2>
+  <p>Cancellation needs two things. The bridges must be at the right angles, and their currents must be equal. Take away either, and the harmonics that were cancelling come back.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th scope="col">Operating condition</th><th scope="col">What each switchboard sees</th><th scope="col">What returns</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Both shafts, all converters, bus tie closed</th><td>48-pulse</td><td>Nothing; the design case</td></tr>
+        <tr><th scope="row">Bus tie open (split plant)</th><td>24-pulse from its own shaft</td><td>23rd and 25th, on both halves</td></tr>
+        <tr><th scope="row">One shaft stopped</th><td>24-pulse</td><td>23rd and 25th</td></tr>
+        <tr><th scope="row">Half-motor mode on one shaft (one converter off)</th><td>One converter has no partner</td><td>11th and 13th, about 3&nbsp;% of line current in the ideal case</td></tr>
+        <tr><th scope="row">Shafts at different loads</th><td>Close to 48-pulse</td><td>A small 23rd and 25th, growing with the load difference</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Split-plant operation deserves a closer look, because it is chosen deliberately: for redundancy, in restricted waters, or as part of safe-return-to-port arrangements. Each half then carries the 23rd and 25th as well as the 47th and 49th. For an ideal rectifier, each characteristic harmonic produces about the same voltage distortion, because the current falls as 1/h while the generator reactance rises as h. Twice as many harmonics means at least about 1.4 times the voltage THD in theory, and more in practice. Whether that crosses the class limit on a given ship is a measurement question. The design figure was calculated for one operating condition.</p>
+  <p>Real plants also keep a residue that no angle removes. Supply voltage unbalance, small differences in transformer impedance and existing voltage distortion upset the current sharing between bridges, and bring back some 5th, 7th, 11th and 13th harmonic even in the design case.</p>
+
+  <h2><span class="n">08</span>What it takes on board</h2>
+  <ol>
+    <li><strong>Know which condition the design value belongs to.</strong> A THD figure in the propulsion documentation applies to closed bus tie, both shafts and all four converters, at the load stated. It says nothing about the other rows of the table above.</li>
+    <li><strong>Treat split-plant operation as a known trade.</strong> Redundancy usually wins, and rightly. But the chief engineer should know that distortion on each half rises, and what that means: extra heating in generators, transformers and motors, and a higher risk of spurious trips in protection relays and sensitive electronics.</li>
+    <li><strong>Treat half-motor mode as a power quality event too.</strong> Losing one converter costs half the torque on that shaft and brings the 11th and 13th back onto the bus.</li>
+    <li><strong>Check vector groups after transformer work.</strong> This is usually done by the maker's service technicians, and vector groups are rarely part of the onboard routine. One point matters: a diode bridge does not care about phase sequence. If two primary phases are swapped during reconnection, the shift changes sign, the converter runs normally, and no alarm comes. The only sign is distortion on the bus.</li>
+    <li><strong>Specify spares by vector group and shift.</strong> The transformers only look the same.</li>
+    <li><strong>Keep the harmonic survey and the calculation report on board.</strong> IACS UR E24 requires the calculation report on board where a ship relies on a limit above 8&nbsp;%. Even where it doesn't, the last measurement is the baseline for the next one.</li>
+  </ol>
+
+  <h2><span class="n">09</span>Questions for the maker</h2>
+  <ul>
+    <li>What voltage THD is expected on each switchboard with the bus tie open and both shafts at full load?</li>
+    <li>And with one shaft in half-motor mode?</li>
+    <li>Which generator subtransient reactance, and how many generators online, were assumed in the harmonic study?</li>
+    <li>Is voltage THD measured continuously on the switchboards, and is there an alarm?</li>
+    <li>Does the pre-magnetisation sequence verify phase alignment with the bus, or only limit the inrush?</li>
+  </ul>
+
+  <h2>The trade-off</h2>
+  <p>The alternative is an active front end: an IGBT rectifier that draws an almost sinusoidal current and can return braking energy to the network. It needs no phase-shifting transformers and no operating conditions to stay clean. It adds switching devices, control, filters and losses, and brings harmonics of its own at switching frequency.</p>
+  <p>The 48-pulse diode arrangement makes the opposite choice. The rectifiers are simple, robust and efficient, and the transformers do the harmonic work passively. The price is four special transformers and a power quality guarantee that holds in one operating condition. Outside that condition, the engineers on board need to know what comes back.</p>
+
+  <div class="card">
+    <p class="t">Further reading</p>
+    <ul class="refs">
+      <li>B. Wu, <a href="https://ieeexplore.ieee.org/document/7827492" rel="noopener">Multipulse Diode Rectifiers</a>, in High-Power Converters and AC Drives, Wiley-IEEE Press.</li>
+      <li>Maritime and Coastguard Agency, <a href="https://assets.publishing.service.gov.uk/media/5a80d59140f0b62305b8d699/MGN_449.pdf" rel="noopener">MGN 449: Potential hazards of excessive harmonic distortion of current and voltage of onboard electrical systems</a>.</li>
+      <li>IACS UR E24, harmonic distortion for ship electrical distribution systems; overview in <a href="https://www.mdpi.com/1996-1073/14/11/3151" rel="noopener">Energies 14 (2021) 3151</a>.</li>
+      <li>P. Enjeti et al., <a href="https://www.osti.gov/biblio/427953" rel="noopener">Design considerations of six-pulse and twelve-pulse diode rectifier systems under voltage unbalance and pre-existing voltage distortion</a>.</li>
+      <li>I. Evans, T. Hoevenaars, <a href="https://ww.mirusinternational.com/downloads/Offshore%20Engineer%20-%20Homing%20In%20On%20Harmonics.pdf" rel="noopener">Homing in on harmonics</a>, Offshore Engineer (filter maker's authors).</li>
+    </ul>
+  </div>
+
+  <hr>
+  <p class="end">Measured harmonic values from split-plant or half-motor operation are welcome: <a href="mailto:contact@ognyanbaltadzhiev.com?subject=48-pulse%20article">contact@ognyanbaltadzhiev.com</a> or <a href="https://www.linkedin.com/in/ognyan-baltadzhiev/" rel="me noopener">LinkedIn</a>.</p>
+  <a class="back" href="/">&larr; Ognyan Baltadzhiev, home</a>
+</article>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>&copy; 2027 Ognyan Baltadzhiev &middot; Varna, Bulgaria</div>
+    <div><time datetime="2027-01-25">Published 25 January 2027</time></div>
+  </div>
+</footer>
+</body>
+</html>
